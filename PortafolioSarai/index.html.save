@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Designer Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Portfolio.</div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container hero-content">
+                <h1>Hi, I'm a UI/UX Designer.</h1>
+                <p>Crafting intuitive and engaging digital experiences with a focus on user-centric design.</p>
+                <a href="#work" class="btn">View My Work</a>
+            </div>
+        </section>
+
+        <section id="work">
+            <div class="container">
+                <h2>Selected Work</h2>
+                <div class="work-grid">
+                    <!-- Project placeholders -->
+                    <div class="project-card">
+                        <div class="image-placeholder">Project 1 Image</div>
+                        <h3>Project One Title</h3>
+                        <p>Web Design / Mobile App</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="image-placeholder">Project 2 Image</div>
+                        <h3>Project Two Title</h3>
+                        <p>Brand Identity / UX Research</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="image-placeholder">Project 3 Image</div>
+                        <h3>Project Three Title</h3>
+                        <p>E-commerce / Interaction Design</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>I am a passionate designer with experience in creating user-centered designs for various platforms. I believe that good design is invisible and focuses on solving real-world problems.</p>
+                        <p>My toolkit includes tools like Figma, Adobe XD, and a strong foundation in modern web technologies.</p>
+                    </div>
+                    <div class="skills">
+                        <h3>Skills</h3>
+                        <ul>
+                            <li>UI/UX Design</li>
+                            <li>Wireframing & Prototyping</li>
+                            <li>User Research</li>
+                            <li>Visual Communication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p>Interested in collaborating or just want to say hi? Feel free to reach out!</p>
+                <div class="social-links">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Behance</a>
+                    <a href="#">Dribbble</a>
+                    <a href="mailto:hello@example.com">Email Me</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 UI/UX Designer Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
