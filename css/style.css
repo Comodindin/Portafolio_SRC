@@ -72,6 +72,41 @@ nav ul li a:hover {
     color: var(--text-secondary);
 }
 
+/* Hamburger: hidden on desktop, revealed in the mobile breakpoint below */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* Middle bar fades, outer bars cross into an X */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 /* Hero Section */
 #hero {
     height: 80vh;
@@ -240,20 +275,25 @@ section h2 {
 }
 
 /* Advanced Animation Classes */
-.reveal-item {
+/* Scoped to .js so the page stays readable if the script never runs.
+   Without it, everything would sit at opacity 0 forever. */
+.js .reveal-item {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.reveal-item.active {
+.js .reveal-item.active {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Stagger delay for cards */
-.work-grid .reveal-item:nth-child(2) { transition-delay: 0.2s; }
-.work-grid .reveal-item:nth-child(3) { transition-delay: 0.4s; }
+/* Stagger delay across a full row of cards */
+.js .work-grid .reveal-item:nth-child(2) { transition-delay: 0.1s; }
+.js .work-grid .reveal-item:nth-child(3) { transition-delay: 0.2s; }
+.js .work-grid .reveal-item:nth-child(4) { transition-delay: 0.3s; }
+.js .work-grid .reveal-item:nth-child(5) { transition-delay: 0.4s; }
+.js .work-grid .reveal-item:nth-child(6) { transition-delay: 0.5s; }
 
 /* About Section */
 .about-grid {
@@ -328,13 +368,79 @@ footer {
     .hero-content h1 {
         font-size: 2.5rem;
     }
-    
+
     .about-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* Menu drops out of the sticky header and covers the full width */
     header nav ul {
-        display: none; /* In a real app, you'd add a mobile menu */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid #eee;
+        padding: 1rem 2rem 1.5rem;
+        gap: 0.5rem;
+
+        /* Collapsed by default. visibility keeps it out of the tab order. */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+
+    header nav ul.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    header nav ul li {
+        margin-left: 0;
+    }
+
+    header nav ul li a {
+        display: block;
+        padding: 0.5rem 0;
+        font-size: 1.1rem;
+    }
+}
+
+/* Honour the OS-level "reduce motion" setting: no floating heading, no
+   slide-in reveals, no smooth scrolling. Content still appears. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
+
+    .js .reveal-item {
+        opacity: 1;
+        transform: none;
+    }
+
+    .project-card:hover {
+        transform: none;
+    }
+
+    .project-card:hover .image-container img {
+        transform: none;
     }
 }

@@ -12,19 +12,26 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Sarai Rosas | Interaction Designer">
     <meta property="og:description" content="Interaction designer working across UI/UX, data visualization and real-time 3D. I design interactive systems and build them.">
-    <meta property="og:url" content="https://comodindin.github.io/PortafolioSarai/">
-    <!-- TODO: add a 1200x630 image at this path so shared links show a preview card -->
-    <meta property="og:image" content="https://comodindin.github.io/PortafolioSarai/assets/images/og-preview.jpg">
+    <meta property="og:url" content="https://comodindin.github.io/Portafolio_SRC/">
+    <meta property="og:image" content="https://comodindin.github.io/Portafolio_SRC/assets/images/og-preview.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="canonical" href="https://comodindin.github.io/PortafolioSarai/">
+    <link rel="canonical" href="https://comodindin.github.io/Portafolio_SRC/">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Flags that JS is running, so the CSS reveal animations only hide content
+         when there is something around to bring it back. -->
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
     <header>
         <nav class="container" aria-label="Main navigation">
             <div class="logo">Sarai Rosas</div>
-            <ul>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="nav-menu">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#work">Work</a></li>
                 <li><a href="#about">About</a></li>
