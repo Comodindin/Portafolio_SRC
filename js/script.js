@@ -77,15 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { passive: true });
 
-    // VHS on-screen timecode, counting from when the page opened
-    const osdTime = document.querySelector('.osd-time');
-    const started = Date.now();
-    const pad = (n) => String(n).padStart(2, '0');
-    setInterval(() => {
-        const s = Math.floor((Date.now() - started) / 1000);
-        osdTime.textContent = `${pad(Math.floor(s / 3600))}:${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}`;
-    }, 1000);
-
     // Hero: a panel of Talavera tiles. Each one turns a quarter when touched,
     // except the one with a keyhole: that one is a door to the other reality.
     const tiles = document.querySelector('.tiles');

@@ -88,8 +88,6 @@
             // Deleted scene (red reality). Any key ending in "Red" replaces
             // its base key while the red reality is on.
             realityLabel: 'Deleted scene',
-            osd: '▶ PLAY  ORIGINAL CUT',
-            osdRed: '● REC  DELETED SCENE',
             pageTitleRed: 'Sarai Rosas | Deleted scene',
             heroKickerRed: 'Deleted scene. Footage that never made the final cut.',
             heroTilesRed: "One of these tiles wasn't here before.",
@@ -184,8 +182,6 @@
             contactEmail: 'Escríbeme',
             rights: 'Todos los derechos reservados.',
             realityLabel: 'Escena eliminada',
-            osd: '▶ PLAY  CORTE ORIGINAL',
-            osdRed: '● REC  ESCENA ELIMINADA',
             pageTitleRed: 'Sarai Rosas | Escena eliminada',
             heroKickerRed: 'Escena eliminada. Material que nunca llegó al corte final.',
             heroTilesRed: 'Uno de estos azulejos no estaba antes.',

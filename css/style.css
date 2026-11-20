@@ -482,6 +482,20 @@ a.project-card:hover h3 {
     line-height: 1.35;
 }
 
+/* A campaign laid out as one contact strip: every piece the same height.
+   Each figure grows in proportion to its aspect ratio (--r = width/height),
+   so squares and vertical stories line up along the same top and bottom. */
+.campaign-strip {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+
+.campaign-strip > .media-card {
+    flex: var(--r) 1 0;
+    min-width: 0;
+}
+
 /* Every image, video and carousel track shares the same frame */
 .media-card > img,
 .media-card > video,
@@ -818,31 +832,6 @@ html[data-reality="red"] .screen-fx::before {
     50% { opacity: 0; }
 }
 
-/* VHS on-screen display */
-.osd {
-    position: fixed;
-    left: 1.25rem;
-    bottom: 1rem;
-    z-index: 1600;
-    display: flex;
-    gap: 1.25rem;
-    font-family: "VT323", ui-monospace, monospace;
-    font-size: 1.35rem;
-    line-height: 1;
-    color: var(--cobalt);
-    white-space: pre;
-    pointer-events: none;
-}
-
-html[data-reality="red"] .osd {
-    color: #fff;
-    text-shadow: 2px 0 rgba(214, 38, 43, 0.9);
-}
-
-html[data-reality="red"] .osd-mode {
-    animation: blink 1.6s steps(2, jump-none) infinite;
-}
-
 /* Surfaces with fixed colours in the blue cut */
 html[data-reality="red"] .site-header {
     background: rgba(10, 5, 5, 0.9);
@@ -1002,6 +991,20 @@ html[data-reality="red"] h1::after {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
+
+    /* Too narrow for one row: the strip scrolls sideways at a fixed height */
+    .campaign-strip {
+        overflow-x: auto;
+        scroll-snap-type: x proximity;
+        padding-bottom: 0.75rem;
+        margin-right: -2rem;
+        padding-right: 2rem;
+    }
+
+    .campaign-strip > .media-card {
+        flex: 0 0 calc(20rem * var(--r));
+        scroll-snap-align: start;
+    }
 }
 
 @media (max-width: 600px) {
@@ -1035,6 +1038,11 @@ html[data-reality="red"] h1::after {
         padding: 0.75rem 1.25rem 1.25rem;
     }
 
+    .campaign-strip {
+        margin-right: -1.25rem;
+        padding-right: 1.25rem;
+    }
+
     .nav-right {
         gap: 0.75rem;
     }
@@ -1051,12 +1059,6 @@ html[data-reality="red"] h1::after {
         overflow: hidden;
         clip: rect(0 0 0 0);
         white-space: nowrap;
-    }
-
-    .osd {
-        font-size: 1.1rem;
-        left: 0.75rem;
-        bottom: 0.6rem;
     }
 }
 
