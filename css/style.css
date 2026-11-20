@@ -1732,6 +1732,45 @@ html[data-reality="red"] .tarot li:hover img {
     font-weight: 600;
 }
 
+/* Each room with its in-engine screenshot next to the description */
+.rooms li.has-shot {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 15rem);
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.room-shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+.room-ending {
+    margin-top: 2.5rem;
+}
+
+.principles-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.principles-chips li {
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+    .rooms li.has-shot {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Identity: the only place VITALIA's own colours appear */
 .naming {
     font-size: clamp(1.3rem, 2.6vw, 1.8rem);
