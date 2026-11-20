@@ -1622,6 +1622,20 @@ html[data-reality="red"] .tarot li:hover img {
     margin-top: 2rem;
 }
 
+.case-cover-video {
+    margin-top: 0;
+    aspect-ratio: 16 / 10;
+}
+
+.case-question + .pain-list,
+.case-text > p + .pain-list {
+    margin-top: 1.75rem;
+}
+
+.palettes-single {
+    grid-template-columns: 1fr;
+}
+
 .case-video + .text-link {
     margin-bottom: 0.5rem;
 }
