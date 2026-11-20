@@ -295,6 +295,225 @@ section h2 {
 .js .work-grid .reveal-item:nth-child(5) { transition-delay: 0.4s; }
 .js .work-grid .reveal-item:nth-child(6) { transition-delay: 0.5s; }
 
+/* Freelance & Experience */
+#experience {
+    background-color: var(--card-bg);
+}
+
+.section-intro {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: end;
+    margin-bottom: 2.5rem;
+}
+
+.section-intro p,
+.campaign-header p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    max-width: 640px;
+}
+
+.section-intro p + p,
+.section-intro p + a {
+    margin-top: 0.75rem;
+}
+
+.eyebrow {
+    font-size: 0.8rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-primary) !important;
+    margin-bottom: 0.75rem;
+}
+
+.text-link {
+    display: inline-block;
+    color: var(--text-primary);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+    transition: var(--transition);
+}
+
+.text-link:hover {
+    color: var(--text-secondary);
+}
+
+.stats {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+}
+
+.stats dt {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+.stats dd {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+}
+
+.hint {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 2rem 1.5rem;
+    align-items: start;
+}
+
+.media-card figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+/* Every image, video and carousel track shares the same frame */
+.media-card > img,
+.media-card > video,
+.carousel-track {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    background: #ececec;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    object-fit: cover;
+}
+
+.ratio-4x5 { aspect-ratio: 4 / 5; }
+.ratio-1x1 { aspect-ratio: 1 / 1; }
+.ratio-9x16 { aspect-ratio: 9 / 16; }
+
+.media-card > video {
+    background: #000;
+}
+
+/* Carousel: native horizontal scroll with snapping, so touch swipe,
+   trackpads and keyboard arrows all work before any JS runs */
+.carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+.carousel-track img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scroll-snap-align: start;
+}
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+}
+
+.carousel-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: var(--bg-color);
+    color: var(--text-primary);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.carousel-btn:hover:not(:disabled) {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.carousel-count {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+
+.campaign {
+    padding-top: 2.5rem;
+    margin-top: 2.5rem;
+    border-top: 1px solid #e2e2e2;
+}
+
+.campaign-header {
+    margin-bottom: 2rem;
+}
+
+.campaign-header h3 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+.campaign-header .project-tags {
+    margin: 1.25rem 0 0;
+}
+
+.campaign-header .project-tags span {
+    background: var(--bg-color);
+}
+
+.spec-card {
+    background: var(--bg-color);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.spec-card div + div {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.spec-card dt {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+.spec-card dd {
+    font-weight: 600;
+}
+
 /* About Section */
 .about-grid {
     display: grid;
@@ -369,9 +588,23 @@ footer {
         font-size: 2.5rem;
     }
 
-    .about-grid {
+    .about-grid,
+    .section-intro {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .stats {
+        justify-content: flex-start;
+    }
+
+    .media-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1.5rem 1rem;
+    }
+
+    section {
+        padding: 4rem 0;
     }
 
     .nav-toggle {
@@ -418,7 +651,8 @@ footer {
 /* Honour the OS-level "reduce motion" setting: no floating heading, no
    slide-in reveals, no smooth scrolling. Content still appears. */
 @media (prefers-reduced-motion: reduce) {
-    html {
+    html,
+    .carousel-track {
         scroll-behavior: auto;
     }
 

@@ -56,6 +56,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Carousels: the track scrolls natively; buttons and the counter just drive it
+    document.querySelectorAll('[data-carousel]').forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        const slides = track.querySelectorAll('img');
+        const count = carousel.querySelector('.carousel-count');
+        const [prev, next] = carousel.querySelectorAll('.carousel-btn');
+
+        const current = () => Math.round(track.scrollLeft / track.clientWidth);
+
+        const update = () => {
+            const i = current();
+            count.textContent = `${i + 1} / ${slides.length}`;
+            prev.disabled = i === 0;
+            next.disabled = i === slides.length - 1;
+        };
+
+        const goTo = (i) => {
+            track.scrollTo({
+                left: i * track.clientWidth,
+                behavior: reduceMotion.matches ? 'auto' : 'smooth'
+            });
+        };
+
+        prev.addEventListener('click', () => goTo(current() - 1));
+        next.addEventListener('click', () => goTo(current() + 1));
+        track.addEventListener('scroll', update, { passive: true });
+        update();
+    });
+
+    // Only one reel plays at a time
+    const videos = document.querySelectorAll('video');
+    videos.forEach(video => {
+        video.addEventListener('play', () => {
+            videos.forEach(other => {
+                if (other !== video) other.pause();
+            });
+        });
+    });
+
     // Advanced reveal animation on scroll
     const revealItems = document.querySelectorAll('.reveal-item');
 
