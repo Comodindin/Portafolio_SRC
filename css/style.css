@@ -865,6 +865,23 @@ html[data-reality="red"] .screen-fx::before {
 }
 
 /* While the TV is off, what's behind the picture is the black tube */
+/* Intro: black screen until the TV switches on. If the script never runs,
+   the page shows itself after a moment anyway. */
+html.intro,
+html.intro body {
+    background: #000;
+}
+
+html.intro .screen,
+html.intro .screen-fx {
+    visibility: hidden;
+    animation: intro-safety 0s 2.5s forwards;
+}
+
+@keyframes intro-safety {
+    to { visibility: visible; }
+}
+
 html.crt,
 html.crt body {
     background: #000;

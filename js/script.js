@@ -115,16 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ], { duration: 640 }).finished;
     };
 
-    const setReality = async (red) => {
-        if (reduceMotion.matches || !screen.animate) {
-            applyReality(red);
-            return;
-        }
-        if (switching) return;
-        switching = true;
-
-        // Only the part of the page on screen is the "picture": clip to it and
-        // squash around its middle, so a 4px line is 4px whatever the page length
+    // Only the part of the page on screen is the "picture": clip to it and
+    // squash around its middle, so a 4px line is 4px whatever the page length
+    const frameScreen = () => {
         const top = window.scrollY;
         const vh = window.innerHeight;
         const below = Math.max(0, screen.offsetHeight - top - vh);
@@ -133,7 +126,23 @@ document.addEventListener('DOMContentLoaded', () => {
         screen.style.clipPath = `inset(${top}px 0 ${below}px 0)`;
         screen.style.transformOrigin = `50% ${top + vh / 2}px`;
         root.classList.add('crt');
+    };
 
+    const unframeScreen = () => {
+        root.classList.remove('crt');
+        screen.style.transformOrigin = '';
+        screen.style.clipPath = '';
+    };
+
+    const setReality = async (red) => {
+        if (reduceMotion.matches || !screen.animate) {
+            applyReality(red);
+            return;
+        }
+        if (switching) return;
+        switching = true;
+
+        frameScreen();
         const off = await crtOff();
         applyReality(red);
         await new Promise(r => setTimeout(r, 160));
@@ -141,11 +150,45 @@ document.addEventListener('DOMContentLoaded', () => {
         tvLine.getAnimations().forEach(an => an.cancel());
         await crtOn();
 
-        root.classList.remove('crt');
-        screen.style.transformOrigin = '';
-        screen.style.clipPath = '';
+        unframeScreen();
         switching = false;
     };
+
+    // Intro: on the first visit of a session the page switches on like an old TV.
+    // For two frames, while the picture opens, the deleted scene shows through.
+    // The <head> decides whether to play it (html.intro) so nothing flashes first.
+    if (root.classList.contains('intro')) {
+        try { sessionStorage.setItem('intro', 'seen'); } catch { /* storage blocked: it just plays again */ }
+
+        if (reduceMotion.matches || !screen.animate) {
+            root.classList.remove('intro');
+        } else {
+            switching = true;
+            frameScreen();
+            root.classList.remove('intro');
+            const on = crtOn();
+            const flash = [
+                setTimeout(() => { root.dataset.reality = 'red'; }, 300),
+                setTimeout(() => { root.dataset.reality = 'blue'; }, 370)
+            ];
+            const done = () => {
+                flash.forEach(clearTimeout);
+                root.dataset.reality = 'blue';
+                unframeScreen();
+                switching = false;
+                window.removeEventListener('keydown', skip);
+                window.removeEventListener('pointerdown', skip);
+            };
+            // Any key or click skips straight to the page
+            const skip = () => {
+                tvStatic.getAnimations().concat(tvLine.getAnimations(), screen.getAnimations())
+                    .forEach(an => an.finish());
+            };
+            window.addEventListener('keydown', skip);
+            window.addEventListener('pointerdown', skip);
+            on.then(done, done);
+        }
+    }
 
     realityToggle.addEventListener('click', () => setReality(root.dataset.reality !== 'red'));
 
