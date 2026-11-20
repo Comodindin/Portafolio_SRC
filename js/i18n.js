@@ -15,6 +15,11 @@
             navExperience: 'Experience',
             navAbout: 'About',
             navContact: 'Contact',
+            navDeleted: 'Discarded',
+            deletedTitle: 'Discarded footage',
+            deletedIntro: "What didn't make the final cut: earlier versions, tests and process. It only shows up here.",
+            deletedV1: 'First version ↗',
+            deletedFinal: 'Final version ↗',
 
             heroKicker: 'Interaction designer in Puebla, Mexico',
             heroLead: 'I design interactive systems and build them in Swift, Unreal Engine and the browser: UI/UX, data visualization and real-time 3D, often where social research meets technology.',
@@ -112,7 +117,7 @@
             // Deleted scene (red reality). Any key ending in "Red" replaces
             // its base key while the red reality is on.
             realityLabel: 'Deleted scene',
-            realityLabelRed: 'Back to the original cut',
+            realityLabelRed: '← Original cut',
             pageTitleRed: 'Sarai Rosas | Deleted scene',
             heroKickerRed: 'Deleted scene. Footage that never made the final cut.',
             heroTilesRed: "One of these tiles wasn't here before.",
@@ -136,6 +141,11 @@
             navExperience: 'Experiencia',
             navAbout: 'Sobre mí',
             navContact: 'Contacto',
+            navDeleted: 'Descartado',
+            deletedTitle: 'Material descartado',
+            deletedIntro: 'Lo que no llegó al corte final: versiones anteriores, pruebas y procesos. Solo aparece aquí.',
+            deletedV1: 'Primera versión ↗',
+            deletedFinal: 'Versión final ↗',
 
             heroKicker: 'Diseñadora de interacción en Puebla, México',
             heroLead: 'Diseño sistemas interactivos y los construyo en Swift, Unreal Engine y el navegador: UI/UX, visualización de datos y 3D en tiempo real, muchas veces donde la investigación social se cruza con la tecnología.',
@@ -231,7 +241,7 @@
             contactEmail: 'Escríbeme',
             rights: 'Todos los derechos reservados.',
             realityLabel: 'Escena eliminada',
-            realityLabelRed: 'Volver al corte original',
+            realityLabelRed: '← Corte original',
             pageTitleRed: 'Sarai Rosas | Escena eliminada',
             heroKickerRed: 'Escena eliminada. Material que nunca llegó al corte final.',
             heroTilesRed: 'Uno de estos azulejos no estaba antes.',
