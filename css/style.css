@@ -397,6 +397,43 @@ a.project-card:hover h3 {
     max-width: 62ch;
 }
 
+/* Cards with more than one destination (e.g. first version vs final build) */
+.card-iteration {
+    margin-top: 0.9rem;
+    font-weight: 600;
+    color: var(--ink) !important;
+}
+
+.card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.9rem;
+}
+
+.card-links a {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--cobalt);
+    border: 1.5px solid var(--cobalt);
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.card-links a:first-child,
+.card-links a:hover {
+    background: var(--cobalt);
+    color: #fff;
+}
+
+.card-links a:first-child:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+}
+
 .tags {
     display: flex;
     flex-wrap: wrap;
