@@ -50,20 +50,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const realityToggle = document.querySelector('.reality-toggle');
     const screenFx = document.querySelector('.screen-fx');
 
-    const setReality = (red) => {
+    const applyReality = (red) => {
         root.dataset.reality = red ? 'red' : 'blue';
         realityToggle.setAttribute('aria-pressed', String(red));
         if (window.i18n) window.i18n.refresh();
-
-        // One VHS tracking glitch to mark the cut between realities
-        if (!reduceMotion.matches) {
-            screenFx.classList.remove('tearing');
-            void screenFx.offsetWidth; // restart the animation
-            screenFx.classList.add('tearing');
-        }
     };
 
-    screenFx.addEventListener('animationend', () => screenFx.classList.remove('tearing'));
+    // Like changing channel on an old TV: the screen cuts to black, the
+    // reality swaps while nothing is visible, then the new one fades in.
+    let switching = false;
+    const setReality = (red) => {
+        if (reduceMotion.matches) {
+            applyReality(red);
+            return;
+        }
+        if (switching) return;
+        switching = true;
+        screenFx.classList.add('switching');
+        setTimeout(() => applyReality(red), 320);
+    };
+
+    screenFx.addEventListener('animationend', () => {
+        screenFx.classList.remove('switching');
+        switching = false;
+    });
     realityToggle.addEventListener('click', () => setReality(root.dataset.reality !== 'red'));
 
     // Flashlight: in the deleted scene, the light follows the pointer
