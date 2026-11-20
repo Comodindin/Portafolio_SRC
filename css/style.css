@@ -999,6 +999,56 @@ html[data-reality="red"] .video-thumb:hover img {
     filter: none;
 }
 
+.deleted-item + .deleted-item {
+    margin-top: 4.5rem;
+}
+
+/* The deck is laid out like a hand of cards, each one slightly off */
+.tarot {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.tarot li {
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform 0.25s ease;
+}
+
+.tarot li:nth-child(odd) { --tilt: -1.5deg; }
+.tarot li:nth-child(3n) { --tilt: 2deg; }
+
+.tarot li:hover {
+    transform: rotate(0deg) translateY(-0.5rem);
+}
+
+.tarot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.45);
+}
+
+html[data-reality="red"] .tarot li:hover img {
+    filter: none;
+}
+
+@media (max-width: 900px) {
+    .tarot {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 0.75rem 0 1rem;
+    }
+
+    .tarot li {
+        flex: 0 0 42%;
+        scroll-snap-align: start;
+    }
+}
+
 @media (max-width: 600px) {
     .compare {
         grid-template-columns: 1fr;
