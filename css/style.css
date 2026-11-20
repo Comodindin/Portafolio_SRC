@@ -531,6 +531,12 @@ a.image-container:hover,
     border-radius: 999px;
 }
 
+/* An award reads differently from a work-in-progress label */
+.status-award {
+    background: var(--cobalt);
+    color: #fff;
+}
+
 /* Freelance & Experience */
 #experience {
     background: var(--tint);
