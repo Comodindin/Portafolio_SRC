@@ -824,13 +824,16 @@
     const apply = (lang) => {
         current = strings[lang] ? lang : 'en';
         document.documentElement.lang = current;
-        document.title = t(document.body.dataset.title || 'pageTitle');
+        document.title = t(document.body.dataset.title || 'pageTitle') || document.title;
 
+        // A missing string keeps the text already in the HTML instead of blanking it
         document.querySelectorAll('[data-i18n]').forEach(el => {
-            el.textContent = t(el.dataset.i18n);
+            const value = t(el.dataset.i18n);
+            if (value != null) el.textContent = value;
         });
         document.querySelectorAll('[data-i18n-aria]').forEach(el => {
-            el.setAttribute('aria-label', t(el.dataset.i18nAria));
+            const value = t(el.dataset.i18nAria);
+            if (value != null) el.setAttribute('aria-label', value);
         });
 
         // Links with a version in each language (e.g. the Spanish and English Behance posts)
