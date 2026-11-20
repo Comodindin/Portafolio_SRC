@@ -1,60 +1,75 @@
 document.addEventListener('DOMContentLoaded', () => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const t = (key) => (window.i18n ? window.i18n.t(key) : key);
 
     // Mobile menu
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.getElementById('nav-menu');
 
-    const closeMenu = () => {
-        navMenu.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.setAttribute('aria-label', 'Open menu');
+    const setMenu = (open) => {
+        navMenu.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', t(open ? 'menuClose' : 'menuOpen'));
     };
 
     if (navToggle && navMenu) {
-        navToggle.addEventListener('click', () => {
-            const isOpen = navMenu.classList.toggle('open');
-            navToggle.setAttribute('aria-expanded', String(isOpen));
-            navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-        });
+        setMenu(false);
+        document.addEventListener('languagechange', () => setMenu(navMenu.classList.contains('open')));
+
+        navToggle.addEventListener('click', () => setMenu(!navMenu.classList.contains('open')));
 
         // Tapping a link should navigate and get the menu out of the way
         navMenu.addEventListener('click', (e) => {
-            if (e.target.matches('a')) {
-                closeMenu();
-            }
+            if (e.target.matches('a')) setMenu(false);
         });
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navMenu.classList.contains('open')) {
-                closeMenu();
+                setMenu(false);
                 navToggle.focus();
             }
         });
     }
 
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('nav a, .btn');
-
-    navLinks.forEach(link => {
+    // In-page links scroll below the sticky header
+    const header = document.querySelector('.site-header');
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-
-            // Only handle internal links
-            if (href.startsWith('#')) {
-                e.preventDefault();
-                const targetId = href.substring(1);
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Offset for sticky header
-                        behavior: reduceMotion.matches ? 'auto' : 'smooth'
-                    });
-                }
-            }
+            const target = document.getElementById(link.getAttribute('href').slice(1));
+            if (!target) return;
+            e.preventDefault();
+            window.scrollTo({
+                top: target.getBoundingClientRect().top + window.scrollY - header.offsetHeight,
+                behavior: reduceMotion.matches ? 'auto' : 'smooth'
+            });
         });
     });
+
+    // Hero: a panel of Talavera tiles. Each one turns a quarter when touched.
+    const tiles = document.querySelector('.tiles');
+    if (tiles) {
+        const COUNT = 16;
+        for (let i = 0; i < COUNT; i++) {
+            const tile = document.createElement('span');
+            // A fixed, irregular mix of the four motifs so the panel looks hand-laid
+            tile.className = `tile tile-${(i * 7 + Math.floor(i / 4)) % 4}`;
+            tile.style.setProperty('--turn', `${((i * 5) % 4) * 90}deg`);
+            tile.style.setProperty('--i', i);
+            tiles.appendChild(tile);
+        }
+
+        const turn = (tile) => {
+            const now = parseInt(tile.style.getPropertyValue('--turn'), 10) || 0;
+            tile.style.setProperty('--turn', `${now + 90}deg`);
+        };
+
+        tiles.addEventListener('pointerover', (e) => {
+            if (e.pointerType === 'mouse' && e.target.classList.contains('tile')) turn(e.target);
+        });
+        tiles.addEventListener('click', (e) => {
+            if (e.target.classList.contains('tile')) turn(e.target);
+        });
+    }
 
     // Carousels: the track scrolls natively; buttons and the counter just drive it
     document.querySelectorAll('[data-carousel]').forEach(carousel => {
@@ -93,33 +108,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (other !== video) other.pause();
             });
         });
-    });
-
-    // Advanced reveal animation on scroll
-    const revealItems = document.querySelectorAll('.reveal-item');
-
-    // No IntersectionObserver (or motion turned down) means no animation, so
-    // show everything up front rather than leaving it stuck at opacity 0.
-    if (!('IntersectionObserver' in window) || reduceMotion.matches) {
-        revealItems.forEach(item => item.classList.add('active'));
-        return;
-    }
-
-    const revealOnScroll = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            }
-        });
-    };
-
-    const revealObserver = new IntersectionObserver(revealOnScroll, {
-        root: null,
-        threshold: 0.15,
-    });
-
-    revealItems.forEach(item => {
-        revealObserver.observe(item);
     });
 });

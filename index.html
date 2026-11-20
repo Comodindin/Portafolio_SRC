@@ -18,141 +18,126 @@
 
     <link rel="canonical" href="https://comodindin.github.io/Portafolio_SRC/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Flags that JS is running, so the CSS reveal animations only hide content
-         when there is something around to bring it back. -->
-    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-    <header>
-        <nav class="container" aria-label="Main navigation">
-            <div class="logo">Sarai Rosas</div>
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
-                <span></span><span></span><span></span>
-            </button>
-            <ul id="nav-menu">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#freelance">Freelance</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <a class="skip-link" href="#work" data-i18n="skip">Skip to work</a>
+
+    <header class="site-header">
+        <nav class="container" aria-label="Main navigation" data-i18n-aria="navLabel">
+            <a class="logo" href="#hero">Sarai Rosas</a>
+            <div class="nav-right">
+                <ul id="nav-menu">
+                    <li><a href="#work" data-i18n="navWork">Work</a></li>
+                    <li><a href="#freelance" data-i18n="navFreelance">Freelance</a></li>
+                    <li><a href="#experience" data-i18n="navExperience">Experience</a></li>
+                    <li><a href="#about" data-i18n="navAbout">About</a></li>
+                    <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+                </ul>
+                <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria="langLabel">
+                    <button type="button" data-lang="es" aria-pressed="false" lang="es">ES</button>
+                    <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+                </div>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
     <main>
-        <section id="hero" class="reveal-item">
-            <div class="container hero-content">
-                <h1>Hi, I'm Sarai Rosas.</h1>
-                <p>I design interactive systems and build them in Swift, Unreal Engine and the browser. Interaction design, UI/UX and data visualization, based in Puebla, Mexico.</p>
-                <a href="#work" class="btn">View My Work</a>
-                <a href="assets/CV_Sarai_Rosas.pdf" class="btn" target="_blank" rel="noopener">Download CV</a>
+        <section id="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <p class="kicker" data-i18n="heroKicker">Interaction designer in Puebla, Mexico</p>
+                    <h1>Sarai Rosas</h1>
+                    <p class="hero-lead" data-i18n="heroLead">I design interactive systems and build them in Swift, Unreal Engine and the browser: UI/UX, data visualization and real-time 3D, often where social research meets technology.</p>
+                    <div class="hero-actions">
+                        <a href="#work" class="btn btn-primary" data-i18n="heroWork">View my work</a>
+                        <a href="assets/CV_Sarai_Rosas.pdf" class="btn btn-secondary" target="_blank" rel="noopener" data-i18n="heroCV">Download CV</a>
+                    </div>
+                </div>
+                <figure class="hero-tiles">
+                    <div class="tiles" aria-hidden="true"></div>
+                    <figcaption data-i18n="heroTiles">Talavera tiles, from Puebla. Tap one to turn it.</figcaption>
+                </figure>
             </div>
         </section>
 
-        <section id="work" class="reveal-item">
+        <section id="work">
             <div class="container">
-                <h2>Selected Work</h2>
+                <h2 data-i18n="workTitle">Selected work</h2>
                 <div class="work-grid">
 
-                    <!-- Project 1: VITALIA -->
-                    <a href="https://www.behance.net/gallery/239231705/VITALIA" target="_blank" rel="noopener noreferrer" class="project-card reveal-item">
+                    <a href="https://www.behance.net/gallery/239231705/VITALIA" target="_blank" rel="noopener noreferrer" class="project-card">
                         <div class="image-container">
                             <img src="assets/images/vitalia.jpg" alt="VITALIA app screens showing the onboarding flow, a recipe view and the wellness tracker">
                         </div>
-                        <div class="project-info">
-                            <div class="project-tags">
-                                <span>iOS</span>
-                                <span>Swift</span>
-                                <span>Product Design</span>
-                            </div>
-                            <h3>VITALIA: Health &amp; Wellness App</h3>
-                            <p>A functional iOS app built around one deliberate product decision: replacing calorie-counting pressure with habit tracking and emotional journaling. Covers onboarding with a personalized assessment, macro and hydration dashboards, sleep logging, recipes and guided breathing.</p>
-                        </div>
+                        <ul class="tags">
+                            <li>iOS</li><li>Swift</li><li data-i18n="tagProduct">Product design</li>
+                        </ul>
+                        <h3 data-i18n="p1Title">VITALIA: Health &amp; Wellness App</h3>
+                        <p data-i18n="p1Desc">A functional iOS app built around one deliberate product decision: replacing calorie-counting pressure with habit tracking and emotional journaling. Covers onboarding with a personalized assessment, macro and hydration dashboards, sleep logging, recipes and guided breathing.</p>
                     </a>
 
-                    <!-- Project 2: Echoes of the Past, Voices of the Present -->
-                    <a href="https://youtu.be/jsRfcmPOvq0" target="_blank" rel="noopener noreferrer" class="project-card reveal-item">
+                    <a href="https://youtu.be/jsRfcmPOvq0" target="_blank" rel="noopener noreferrer" class="project-card">
                         <div class="image-container">
                             <img src="assets/images/unreal-experience.jpg" loading="lazy" decoding="async" alt="Gameplay view from Echoes of the Past, Voices of the Present">
                         </div>
-                        <div class="project-info">
-                            <div class="project-tags">
-                                <span>Unreal Engine</span>
-                                <span>Serious Games</span>
-                                <span>3D Design</span>
-                            </div>
-                            <h3>Echoes of the Past, Voices of the Present</h3>
-                            <p>A first-person puzzle game on gender inequality in Mexico. Each room maps a different sphere of life (domestic, media, education, politics) to an interactive challenge, closing with a memorial hall of Mexican pioneers and a puzzle that assembles the legislative wins they made possible.</p>
-                        </div>
+                        <ul class="tags">
+                            <li>Unreal Engine</li><li data-i18n="tagSerious">Serious games</li><li data-i18n="tag3D">3D design</li>
+                        </ul>
+                        <h3>Echoes of the Past, Voices of the Present</h3>
+                        <p data-i18n="p2Desc">A first-person puzzle game on gender inequality in Mexico. Each room maps a different sphere of life (domestic, media, education, politics) to an interactive challenge, closing with a memorial hall of Mexican pioneers and a puzzle that assembles the legislative wins they made possible.</p>
                     </a>
 
-                    <!-- Project 3: Femicide Cartography -->
-                    <a href="https://comodindin.github.io/Geografiaas-del-Silencio-Fem/" target="_blank" rel="noopener noreferrer" class="project-card reveal-item">
+                    <a href="https://comodindin.github.io/Geografiaas-del-Silencio-Fem/" target="_blank" rel="noopener noreferrer" class="project-card">
                         <div class="image-container">
                             <img src="assets/images/femicide-project.jpg" loading="lazy" decoding="async" alt="Femicide Cartography web interface showing the interactive map">
                         </div>
-                        <div class="project-info">
-                            <div class="project-tags">
-                                <span>UI/UX</span>
-                                <span>Frontend</span>
-                                <span>Data Viz</span>
-                            </div>
-                            <h3>Femicide Cartography</h3>
-                            <p>A custom web interface built for the Forensic Architecture Laboratory to document and visualize data on femicide in Mexico, turning forensic research into a cartographic narrative anyone can read.</p>
-                        </div>
+                        <ul class="tags">
+                            <li>UI/UX</li><li>Frontend</li><li data-i18n="tagDataViz">Data viz</li>
+                        </ul>
+                        <h3 data-i18n="p3Title">Femicide Cartography</h3>
+                        <p data-i18n="p3Desc">A custom web interface built for the Forensic Architecture Laboratory to document and visualize data on femicide in Mexico, turning forensic research into a cartographic narrative anyone can read.</p>
                     </a>
 
-                    <!-- Project 4: The LAF Dashboard -->
-                    <a href="https://comodindin.github.io/Laboratorio-de-Arquitectura-Forense/" target="_blank" rel="noopener noreferrer" class="project-card reveal-item">
+                    <a href="https://comodindin.github.io/Laboratorio-de-Arquitectura-Forense/" target="_blank" rel="noopener noreferrer" class="project-card">
                         <div class="image-container">
                             <img src="assets/images/laf-dashboard.jpg" loading="lazy" decoding="async" alt="The LAF Dashboard showing participatory mapping data layers">
                         </div>
-                        <div class="project-info">
-                            <div class="project-tags">
-                                <span>Social Urbanism</span>
-                                <span>Research</span>
-                                <span>Cartography</span>
-                            </div>
-                            <h3>The LAF Dashboard</h3>
-                            <p>Systematization and qualitative analysis of participatory mapping data at IBERO Puebla, translating citizen narratives into structured information layers for social urbanism research.</p>
-                        </div>
+                        <ul class="tags">
+                            <li data-i18n="tagUrbanism">Social urbanism</li><li data-i18n="tagResearch">Research</li><li data-i18n="tagCartography">Cartography</li>
+                        </ul>
+                        <h3 data-i18n="p4Title">The LAF Dashboard</h3>
+                        <p data-i18n="p4Desc">Systematization and qualitative analysis of participatory mapping data at IBERO Puebla, translating citizen narratives into structured information layers for social urbanism research.</p>
                     </a>
 
-                    <!-- Project 5: RESOURCE -->
-                    <!-- TODO: once you have an itch.io page or a gameplay clip, wrap this in <a href="..."> like the cards above -->
-                    <div class="project-card reveal-item">
+                    <!-- TODO: once you have an itch.io page or a gameplay clip, change this <div> to an <a href="..."> like the cards above -->
+                    <div class="project-card">
                         <div class="image-container">
                             <img src="assets/images/resource.jpg" loading="lazy" decoding="async" alt="Bedroom environment from RESOURCE, lit by a lamp and a CRT monitor at night">
-                            <span class="status-badge">In production</span>
+                            <span class="status-badge" data-i18n="inProduction">In production</span>
                         </div>
-                        <div class="project-info">
-                            <div class="project-tags">
-                                <span>Unity</span>
-                                <span>Analog Horror</span>
-                                <span>2D Art</span>
-                            </div>
-                            <h3>RESOURCE: Analog Horror Game</h3>
-                            <p>A first-person analog horror game built with 2D assets in a 3D space, currently in final development. Concept, art direction and in-engine implementation.</p>
-                        </div>
+                        <ul class="tags">
+                            <li>Unity</li><li>Analog horror</li><li data-i18n="tag2DArt">2D art</li>
+                        </ul>
+                        <h3 data-i18n="p5Title">RESOURCE: Analog Horror Game</h3>
+                        <p data-i18n="p5Desc">A first-person analog horror game built with 2D assets in a 3D space, currently in final development. Concept, art direction and in-engine implementation.</p>
                     </div>
 
-                    <!-- Project 6: Problemas de Identidad -->
-                    <a href="https://youtu.be/hJZ-tJnwZ8I" target="_blank" rel="noopener noreferrer" class="project-card reveal-item">
+                    <a href="https://youtu.be/hJZ-tJnwZ8I" target="_blank" rel="noopener noreferrer" class="project-card">
                         <div class="image-container">
                             <img src="assets/images/problemas-identidad.jpg" loading="lazy" decoding="async" alt="Frame from Problemas de Identidad showing Ian at a birthday party, surrounded by family">
                         </div>
-                        <div class="project-info">
-                            <div class="project-tags">
-                                <span>2D Animation</span>
-                                <span>Short Film</span>
-                                <span>Storytelling</span>
-                            </div>
-                            <h3>Problemas de Identidad</h3>
-                            <p>An animated short about Ian, whose family and friends won't accept that they want to transition. Caught between them, Ian ends up living a double life, hiding who they really are.</p>
-                        </div>
+                        <ul class="tags">
+                            <li data-i18n="tag2DAnim">2D animation</li><li data-i18n="tagShort">Short film</li><li data-i18n="tagStory">Storytelling</li>
+                        </ul>
+                        <h3>Problemas de Identidad</h3>
+                        <p data-i18n="p6Desc">An animated short about Ian, whose family and friends won't accept that they want to transition. Caught between them, Ian ends up living a double life, hiding who they really are.</p>
                     </a>
 
                 </div>
@@ -161,23 +146,16 @@
 
         <section id="freelance">
             <div class="container">
-                <h2 class="reveal-item">Freelance</h2>
-                <div class="section-intro reveal-item">
-                    <div>
-                        <p class="eyebrow">Client · Marina Reyes, Medicina Integral (Oaxaca)</p>
-                        <p>Instagram content for an integrative medicine practice: art direction, editorial design and copywriting for carousels that explain each therapy in plain language, plus seasonal campaigns and reels.</p>
-                        <a href="https://www.instagram.com/marinareyesintegral" target="_blank" rel="noopener noreferrer" class="text-link">@marinareyesintegral on Instagram &nearr;</a>
-                    </div>
-                    <dl class="stats">
-                        <div><dt>Carousels</dt><dd>8</dd></div>
-                        <div><dt>Pieces</dt><dd>52</dd></div>
-                        <div><dt>Reels</dt><dd>1</dd></div>
-                    </dl>
+                <h2>Freelance</h2>
+                <div class="section-intro">
+                    <h3>Marina Reyes, Medicina Integral</h3>
+                    <p data-i18n="flIntro">Instagram content for an integrative medicine practice in Oaxaca: art direction, editorial design and copywriting for 8 carousels (52 pieces) that explain each therapy in plain language, plus seasonal campaigns and a reel.</p>
+                    <a href="https://www.instagram.com/marinareyesintegral" target="_blank" rel="noopener noreferrer" class="text-link" data-i18n="flInstagram">See @marinareyesintegral on Instagram ↗</a>
                 </div>
-                <p class="hint reveal-item">Swipe or use the arrows to flip through each carousel.</p>
+                <p class="hint" data-i18n="flHint">Swipe or use the arrows to flip through each carousel.</p>
                 <div class="media-grid">
 
-                    <figure class="media-card carousel reveal-item" data-carousel>
+                    <figure class="media-card carousel" data-carousel>
                         <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="¿Ya nos conoces? (5 slides)">
                             <img src="assets/images/freelance/conocenos/01.jpg" loading="lazy" decoding="async" alt="¿Ya nos conoces?, slide 1 of 5">
                             <img src="assets/images/freelance/conocenos/02.jpg" loading="lazy" decoding="async" alt="¿Ya nos conoces?, slide 2 of 5">
@@ -193,7 +171,7 @@
                         <figcaption>¿Ya nos conoces?</figcaption>
                     </figure>
 
-                    <figure class="media-card carousel reveal-item" data-carousel>
+                    <figure class="media-card carousel" data-carousel>
                         <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Lo que más nos preguntan (7 slides)">
                             <img src="assets/images/freelance/preguntas/01.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 1 of 7">
                             <img src="assets/images/freelance/preguntas/02.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 2 of 7">
@@ -211,7 +189,7 @@
                         <figcaption>Lo que más nos preguntan</figcaption>
                     </figure>
 
-                    <figure class="media-card carousel reveal-item" data-carousel>
+                    <figure class="media-card carousel" data-carousel>
                         <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="No todas las sesiones de acupuntura son iguales (8 slides)">
                             <img src="assets/images/freelance/acupuntura/01.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 1 of 8">
                             <img src="assets/images/freelance/acupuntura/02.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 2 of 8">
@@ -230,7 +208,7 @@
                         <figcaption>No todas las sesiones de acupuntura son iguales</figcaption>
                     </figure>
 
-                    <figure class="media-card carousel reveal-item" data-carousel>
+                    <figure class="media-card carousel" data-carousel>
                         <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="¿Has escuchado de las Barras de Access? (7 slides)">
                             <img src="assets/images/freelance/barras-access/01.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 1 of 7">
                             <img src="assets/images/freelance/barras-access/02.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 2 of 7">
@@ -248,7 +226,7 @@
                         <figcaption>¿Has escuchado de las Barras de Access?</figcaption>
                     </figure>
 
-                    <figure class="media-card carousel reveal-item" data-carousel>
+                    <figure class="media-card carousel" data-carousel>
                         <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="¿Conoces la detox iónica? (7 slides)">
                             <img src="assets/images/freelance/detox-ionica/01.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 1 of 7">
                             <img src="assets/images/freelance/detox-ionica/02.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 2 of 7">
@@ -266,7 +244,7 @@
                         <figcaption>¿Conoces la detox iónica?</figcaption>
                     </figure>
 
-                    <figure class="media-card carousel reveal-item" data-carousel>
+                    <figure class="media-card carousel" data-carousel>
                         <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="¿Has escuchado de la auriculoterapia? (7 slides)">
                             <img src="assets/images/freelance/auriculoterapia/01.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 1 of 7">
                             <img src="assets/images/freelance/auriculoterapia/02.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 2 of 7">
@@ -284,7 +262,7 @@
                         <figcaption>¿Has escuchado de la auriculoterapia?</figcaption>
                     </figure>
 
-                    <figure class="media-card carousel reveal-item" data-carousel>
+                    <figure class="media-card carousel" data-carousel>
                         <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Regálate un momento de descanso (6 slides)">
                             <img src="assets/images/freelance/buen-fin/01.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 1 of 6">
                             <img src="assets/images/freelance/buen-fin/02.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 2 of 6">
@@ -301,7 +279,7 @@
                         <figcaption>Regálate un momento de descanso</figcaption>
                     </figure>
 
-                    <figure class="media-card carousel reveal-item" data-carousel>
+                    <figure class="media-card carousel" data-carousel>
                         <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Hasta la Catrina termina cansada (5 slides)">
                             <img src="assets/images/freelance/dia-muertos/01.jpg" loading="lazy" decoding="async" alt="Hasta la Catrina termina cansada, slide 1 of 5">
                             <img src="assets/images/freelance/dia-muertos/02.jpg" loading="lazy" decoding="async" alt="Hasta la Catrina termina cansada, slide 2 of 5">
@@ -317,11 +295,11 @@
                         <figcaption>Hasta la Catrina termina cansada</figcaption>
                     </figure>
 
-                    <figure class="media-card reveal-item">
+                    <figure class="media-card">
                         <video class="ratio-9x16" controls playsinline preload="none" poster="assets/videos/marina-reel-poster.jpg">
                             <source src="assets/videos/marina-reel.mp4" type="video/mp4">
                         </video>
-                        <figcaption>Reel · Marina Reyes</figcaption>
+                        <figcaption>Reel</figcaption>
                     </figure>
                 </div>
             </div>
@@ -329,26 +307,17 @@
 
         <section id="experience">
             <div class="container">
-                <h2 class="reveal-item">Experience</h2>
-                <div class="section-intro reveal-item">
-                    <div>
-                        <p class="eyebrow">Internship · Volkswagen Financial Services</p>
-                        <p>A year producing social media material for the 11 brands in the group, aimed at their dealership networks. Every piece had to hold each brand's global identity standards while still working as local, financing-focused content.</p>
-                    </div>
-                    <dl class="stats">
-                        <div><dt>Brands</dt><dd>11</dd></div>
-                        <div><dt>Duration</dt><dd>1 yr</dd></div>
-                    </dl>
+                <h2 data-i18n="expTitle">Experience</h2>
+                <div class="section-intro">
+                    <h3>Volkswagen Financial Services</h3>
+                    <p data-i18n="expIntro">Internship, one year. I produced social media material for the 11 brands in the group, aimed at their dealership networks. Every piece had to hold each brand's global identity standards while still working as local, financing-focused content.</p>
                 </div>
 
-                <article class="campaign reveal-item">
+                <article class="campaign">
                     <div class="campaign-header">
-                        <p class="eyebrow">Campaign · Ducati Financial Services</p>
+                        <p class="campaign-client" data-i18n="ducatiClient">Campaign for Ducati Financial Services</p>
                         <h3>Ducati Premier: Panigale V2S 2025</h3>
-                        <p>A multi-format launch for the Ducati Premier financing plan, built around the Panigale V2S 2025: one visual system adapted to carousel, feed post, story, motion graphic and reel.</p>
-                        <div class="project-tags">
-                            <span>Carousel</span><span>Post</span><span>Story</span><span>Motion graphic</span><span>Reel</span>
-                        </div>
+                        <p data-i18n="ducatiDesc">A multi-format launch for the Ducati Premier financing plan, built around the Panigale V2S 2025: one visual system adapted to carousel, feed post, story, motion graphic and reel.</p>
                     </div>
                     <div class="media-grid">
                         <figure class="media-card carousel" data-carousel>
@@ -362,7 +331,7 @@
                                 <span class="carousel-count" aria-live="polite">1 / 3</span>
                                 <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
                             </div>
-                            <figcaption>Carousel</figcaption>
+                            <figcaption data-i18n="fmtCarousel">Carousel</figcaption>
                         </figure>
                         <figure class="media-card">
                             <img class="ratio-1x1" src="assets/images/practicas/ducati-post.jpg" loading="lazy" decoding="async" alt="Ducati Financial Services feed post featuring the Panigale V2S">
@@ -385,11 +354,11 @@
                     </div>
                 </article>
 
-                <article class="campaign reveal-item">
+                <article class="campaign">
                     <div class="campaign-header">
-                        <p class="eyebrow">Campaign · SEAT</p>
+                        <p class="campaign-client" data-i18n="seatClient">Campaign for SEAT</p>
                         <h3>SEAT Usados Certificados</h3>
-                        <p>A short vertical reel for SEAT's certified pre-owned program, presenting SEAT Credit and SEAT Total financing with terms of up to 5 years.</p>
+                        <p data-i18n="seatDesc">A short vertical reel for SEAT's certified pre-owned program, presenting SEAT Credit and SEAT Total financing with terms of up to 5 years.</p>
                     </div>
                     <div class="media-grid">
                         <figure class="media-card">
@@ -399,62 +368,61 @@
                             <figcaption>Reel</figcaption>
                         </figure>
                         <dl class="spec-card">
-                            <div><dt>Brand</dt><dd>SEAT</dd></div>
-                            <div><dt>Format</dt><dd>Reel 9:16</dd></div>
-                            <div><dt>Length</dt><dd>13 s</dd></div>
-                            <div><dt>Program</dt><dd>Usados Certificados</dd></div>
-                            <div><dt>Financing</dt><dd>SEAT Credit &amp; SEAT Total, up to 5 years</dd></div>
+                            <div><dt data-i18n="specBrand">Brand</dt><dd>SEAT</dd></div>
+                            <div><dt data-i18n="specFormat">Format</dt><dd>Reel 9:16</dd></div>
+                            <div><dt data-i18n="specLength">Length</dt><dd>13 s</dd></div>
+                            <div><dt data-i18n="specProgram">Program</dt><dd>Usados Certificados</dd></div>
+                            <div><dt data-i18n="specFinancing">Financing</dt><dd data-i18n="specFinancingValue">SEAT Credit &amp; SEAT Total, up to 5 years</dd></div>
                         </dl>
                     </div>
                 </article>
             </div>
         </section>
 
-        <section id="about" class="reveal-item">
-            <div class="container">
-                <h2>About Me</h2>
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>I'm an interaction designer who takes products from concept to working build. That means a native iOS app in Swift, an interactive web interface, or an immersive environment in Unreal Engine, whichever the problem actually calls for.</p>
-                        <p>Much of my work sits where social research meets interaction design: turning complex data and field research into interfaces and cartographic narratives people can navigate. I studied Interaction Design and Animation at Universidad Iberoamericana Puebla, and spent a year at Volkswagen Financial Services building corporate identity assets and holding global brand standards across multiple automotive brands.</p>
-                        <p>My toolkit spans Swift, HTML, CSS, JavaScript and ArcGIS Experience Builder, alongside Unity, Unreal Engine and the Adobe suite. I work in Spanish, English and German.</p>
-                    </div>
-                    <div class="skills">
-                        <h3>Skills</h3>
-                        <ul>
-                            <li>UI/UX Design &amp; Testing</li>
-                            <li>Mobile Product Design (iOS / Swift)</li>
-                            <li>Data &amp; Spatial Visualization</li>
-                            <li>Interactive Systems Design</li>
-                            <li>3D Modeling &amp; Real-Time Environments</li>
-                            <li>Serious Games &amp; Game Design</li>
-                            <li>AI-Assisted Design &amp; Workflows</li>
-                        </ul>
-                    </div>
+        <section id="about">
+            <div class="container about-grid">
+                <div class="about-text">
+                    <h2 data-i18n="aboutTitle">About me</h2>
+                    <p data-i18n="about1">I'm an interaction designer who takes products from concept to working build. That means a native iOS app in Swift, an interactive web interface, or an immersive environment in Unreal Engine, whichever the problem actually calls for.</p>
+                    <p data-i18n="about2">Much of my work sits where social research meets interaction design: turning complex data and field research into interfaces and cartographic narratives people can navigate. I studied Interaction Design and Animation at Universidad Iberoamericana Puebla, and spent a year at Volkswagen Financial Services building corporate identity assets and holding global brand standards across multiple automotive brands.</p>
+                    <p data-i18n="about3">My toolkit spans Swift, HTML, CSS, JavaScript and ArcGIS Experience Builder, alongside Unity, Unreal Engine and the Adobe suite. I work in Spanish, English and German.</p>
+                </div>
+                <div class="skills">
+                    <h3 data-i18n="skillsTitle">Skills</h3>
+                    <ul>
+                        <li data-i18n="skill1">UI/UX design &amp; testing</li>
+                        <li data-i18n="skill2">Mobile product design (iOS / Swift)</li>
+                        <li data-i18n="skill3">Data &amp; spatial visualization</li>
+                        <li data-i18n="skill4">Interactive systems design</li>
+                        <li data-i18n="skill5">3D modeling &amp; real-time environments</li>
+                        <li data-i18n="skill6">Serious games &amp; game design</li>
+                        <li data-i18n="skill7">AI-assisted design &amp; workflows</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="reveal-item">
+        <section id="contact">
             <div class="container">
-                <h2>Get In Touch</h2>
-                <p>Based in Puebla, Mexico. Open to remote work and relocation. If you're building something interactive and want a designer who can also ship it, let's talk.</p>
-                <div class="social-links">
-                    <a href="mailto:rcsarai390@gmail.com">Email Me</a>
-                    <a href="https://www.linkedin.com/in/sarai-rosas-2a2400378" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="https://www.behance.net/sarairosasc" target="_blank" rel="noopener noreferrer">Behance</a>
-                    <a href="https://github.com/comodindin" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </div>
+                <h2 data-i18n="contactTitle">Get in touch</h2>
+                <p data-i18n="contactText">Based in Puebla, Mexico. Open to remote work and relocation. If you're building something interactive and want a designer who can also ship it, let's talk.</p>
+                <ul class="social-links">
+                    <li><a href="mailto:rcsarai390@gmail.com" data-i18n="contactEmail">Email me</a></li>
+                    <li><a href="https://www.linkedin.com/in/sarai-rosas-2a2400378" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://www.behance.net/sarairosasc" target="_blank" rel="noopener noreferrer">Behance</a></li>
+                    <li><a href="https://github.com/comodindin" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                </ul>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Sarai Rosas. All rights reserved.</p>
+            <p>&copy; 2026 Sarai Rosas. <span data-i18n="rights">All rights reserved.</span></p>
         </div>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
