@@ -2,3 +2,6 @@
 # Source files (originals, .ai, uncompressed video). The site uses the optimized
 # copies in assets/images/freelance, assets/images/practicas and assets/videos.
 assets/fotos y videos/
+node_modules/
+package.json
+package-lock.json
