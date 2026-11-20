@@ -308,6 +308,38 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.i18n) window.i18n.refresh();
     }
 
+    // CV: each profile link and each language can have its own PDF in assets/cv/,
+    // named CV_Sarai_Rosas_<profile>_<lang>.pdf (profile: general, ux, games,
+    // animation, design). Missing files fall back to the general one, then to the
+    // original CV, so the button never points to a 404.
+    const cvLink = document.querySelector('a[href$="CV_Sarai_Rosas.pdf"]');
+    if (cvLink && window.fetch) {
+        const fallback = cvLink.getAttribute('href');
+        const exists = {};
+        const check = (url) => {
+            if (!(url in exists)) {
+                exists[url] = fetch(url, { method: 'HEAD' }).then(r => r.ok).catch(() => false);
+            }
+            return exists[url];
+        };
+        const profileName = (() => {
+            try { return sessionStorage.getItem('perfil') || 'general'; } catch { return 'general'; }
+        })();
+        const pickCv = async () => {
+            const lang = window.i18n ? window.i18n.lang : 'en';
+            const candidates = [
+                `assets/cv/CV_Sarai_Rosas_${profileName}_${lang}.pdf`,
+                `assets/cv/CV_Sarai_Rosas_general_${lang}.pdf`
+            ];
+            for (const url of candidates) {
+                if (await check(url)) { cvLink.setAttribute('href', url); return; }
+            }
+            cvLink.setAttribute('href', fallback);
+        };
+        pickCv();
+        document.addEventListener('languagechange', pickCv);
+    }
+
     // Carousels: the track scrolls natively; buttons and the counter just drive it
     document.querySelectorAll('[data-carousel]').forEach(carousel => {
         const track = carousel.querySelector('.carousel-track');
