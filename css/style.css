@@ -1698,6 +1698,40 @@ html[data-reality="red"] .tarot li:hover img {
     margin-top: 0.6rem;
 }
 
+/* In-engine screenshots, in room order; panoramic ones take the full row */
+.shot-grid,
+.asset-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 1.25rem;
+    margin-top: 2rem;
+}
+
+.shot-grid img,
+.asset-grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+.shot-grid figure:not(.shot-wide) img {
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+}
+
+.shot-grid .shot-wide,
+.asset-grid .asset-wide {
+    grid-column: 1 / -1;
+}
+
+.shot-grid figcaption,
+.asset-grid figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 /* Identity: the only place VITALIA's own colours appear */
 .naming {
     font-size: clamp(1.3rem, 2.6vw, 1.8rem);
@@ -1801,6 +1835,8 @@ html[data-reality="red"] .naming strong {
 
     .identity-row,
     .case-figure,
+    .shot-grid,
+    .asset-grid,
     .demo,
     .persona-pair,
     .principles,
