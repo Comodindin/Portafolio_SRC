@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-reality="blue">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=VT323&display=swap">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -37,6 +37,10 @@
                     <li><a href="#about" data-i18n="navAbout">About</a></li>
                     <li><a href="#contact" data-i18n="navContact">Contact</a></li>
                 </ul>
+                <button type="button" class="reality-toggle" aria-pressed="false">
+                    <span class="reality-dot" aria-hidden="true"></span>
+                    <span class="reality-label" data-i18n="realityLabel">Deleted scene</span>
+                </button>
                 <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria="langLabel">
                     <button type="button" data-lang="es" aria-pressed="false" lang="es">ES</button>
                     <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
@@ -53,7 +57,7 @@
             <div class="container hero-grid">
                 <div class="hero-text">
                     <p class="kicker" data-i18n="heroKicker">Interaction designer in Puebla, Mexico</p>
-                    <h1>Sarai Rosas</h1>
+                    <h1 data-text="Sarai Rosas">Sarai Rosas</h1>
                     <p class="hero-lead" data-i18n="heroLead">I design interactive systems and build them in Swift, Unreal Engine and the browser: UI/UX, data visualization and real-time 3D, often where social research meets technology.</p>
                     <div class="hero-actions">
                         <a href="#work" class="btn btn-primary" data-i18n="heroWork">View my work</a>
@@ -421,6 +425,13 @@
             <p>&copy; 2026 Sarai Rosas. <span data-i18n="rights">All rights reserved.</span></p>
         </div>
     </footer>
+
+    <!-- Analog layer: grain, scanlines, flashlight and the VHS on-screen display -->
+    <div class="screen-fx" aria-hidden="true"></div>
+    <div class="osd" aria-hidden="true">
+        <span class="osd-mode" data-i18n="osd">▶ PLAY  ORIGINAL CUT</span>
+        <span class="osd-time">00:00:00</span>
+    </div>
 
     <script src="js/i18n.js"></script>
     <script src="js/script.js"></script>

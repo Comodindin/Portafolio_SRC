@@ -85,6 +85,20 @@
             contactText: "Based in Puebla, Mexico. Open to remote work and relocation. If you're building something interactive and want a designer who can also ship it, let's talk.",
             contactEmail: 'Email me',
             rights: 'All rights reserved.',
+            // Deleted scene (red reality). Any key ending in "Red" replaces
+            // its base key while the red reality is on.
+            realityLabel: 'Deleted scene',
+            osd: '▶ PLAY  ORIGINAL CUT',
+            osdRed: '● REC  DELETED SCENE',
+            pageTitleRed: 'Sarai Rosas | Deleted scene',
+            heroKickerRed: 'Deleted scene. Footage that never made the final cut.',
+            heroTilesRed: "One of these tiles wasn't here before.",
+            heroWorkRed: 'Open the files',
+            workTitleRed: 'Recovered files',
+            inProductionRed: 'Signal detected',
+            aboutTitleRed: "Who's behind the camera",
+            contactTitleRed: 'Are you still there?',
+            rightsRed: "You shouldn't be here.",
         },
 
         es: {
@@ -169,6 +183,18 @@
             contactText: 'Vivo en Puebla, México. Disponible para trabajo remoto y reubicación. Si estás construyendo algo interactivo y buscas una diseñadora que también pueda llevarlo a producción, escríbeme.',
             contactEmail: 'Escríbeme',
             rights: 'Todos los derechos reservados.',
+            realityLabel: 'Escena eliminada',
+            osd: '▶ PLAY  CORTE ORIGINAL',
+            osdRed: '● REC  ESCENA ELIMINADA',
+            pageTitleRed: 'Sarai Rosas | Escena eliminada',
+            heroKickerRed: 'Escena eliminada. Material que nunca llegó al corte final.',
+            heroTilesRed: 'Uno de estos azulejos no estaba antes.',
+            heroWorkRed: 'Abrir los archivos',
+            workTitleRed: 'Archivos recuperados',
+            inProductionRed: 'Señal detectada',
+            aboutTitleRed: 'Quién está detrás de la cámara',
+            contactTitleRed: '¿Sigues ahí?',
+            rightsRed: 'No deberías estar aquí.',
         },
     };
 
@@ -183,8 +209,11 @@
         try { localStorage.setItem(STORAGE_KEY, lang); } catch { /* private mode: just don't remember */ }
     };
 
+    const isRed = () => document.documentElement.dataset.reality === 'red';
+
     const t = (key, ...args) => {
-        const value = strings[current][key] ?? strings.en[key];
+        const k = isRed() && (key + 'Red') in strings[current] ? key + 'Red' : key;
+        const value = strings[current][k] ?? strings.en[k];
         return typeof value === 'function' ? value(...args) : value;
     };
 
@@ -228,5 +257,5 @@
         });
     });
 
-    window.i18n = { t, get lang() { return current; } };
+    window.i18n = { t, refresh: () => apply(current), get lang() { return current; } };
 })();

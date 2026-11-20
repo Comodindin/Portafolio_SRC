@@ -45,20 +45,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Hero: a panel of Talavera tiles. Each one turns a quarter when touched.
+    // Two realities: blue is the original cut, red is the deleted scene.
+    const root = document.documentElement;
+    const realityToggle = document.querySelector('.reality-toggle');
+    const screenFx = document.querySelector('.screen-fx');
+
+    const setReality = (red) => {
+        root.dataset.reality = red ? 'red' : 'blue';
+        realityToggle.setAttribute('aria-pressed', String(red));
+        if (window.i18n) window.i18n.refresh();
+
+        // One VHS tracking glitch to mark the cut between realities
+        if (!reduceMotion.matches) {
+            screenFx.classList.remove('tearing');
+            void screenFx.offsetWidth; // restart the animation
+            screenFx.classList.add('tearing');
+        }
+    };
+
+    screenFx.addEventListener('animationend', () => screenFx.classList.remove('tearing'));
+    realityToggle.addEventListener('click', () => setReality(root.dataset.reality !== 'red'));
+
+    // Flashlight: in the deleted scene, the light follows the pointer
+    let lightFrame = null;
+    window.addEventListener('pointermove', (e) => {
+        if (root.dataset.reality !== 'red' || lightFrame) return;
+        lightFrame = requestAnimationFrame(() => {
+            screenFx.style.setProperty('--mx', `${e.clientX}px`);
+            screenFx.style.setProperty('--my', `${e.clientY}px`);
+            lightFrame = null;
+        });
+    }, { passive: true });
+
+    // VHS on-screen timecode, counting from when the page opened
+    const osdTime = document.querySelector('.osd-time');
+    const started = Date.now();
+    const pad = (n) => String(n).padStart(2, '0');
+    setInterval(() => {
+        const s = Math.floor((Date.now() - started) / 1000);
+        osdTime.textContent = `${pad(Math.floor(s / 3600))}:${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}`;
+    }, 1000);
+
+    // Hero: a panel of Talavera tiles. Each one turns a quarter when touched,
+    // except the one with a keyhole: that one is a door to the other reality.
     const tiles = document.querySelector('.tiles');
     if (tiles) {
         const COUNT = 16;
+        const DOOR = 10;
         for (let i = 0; i < COUNT; i++) {
             const tile = document.createElement('span');
             // A fixed, irregular mix of the four motifs so the panel looks hand-laid
-            tile.className = `tile tile-${(i * 7 + Math.floor(i / 4)) % 4}`;
-            tile.style.setProperty('--turn', `${((i * 5) % 4) * 90}deg`);
+            tile.className = i === DOOR ? 'tile tile-door' : `tile tile-${(i * 7 + Math.floor(i / 4)) % 4}`;
+            tile.style.setProperty('--turn', i === DOOR ? '0deg' : `${((i * 5) % 4) * 90}deg`);
+            // In the deleted scene every tile sits slightly wrong
+            tile.style.setProperty('--slip', `${((i * 37) % 9) - 4}deg`);
             tile.style.setProperty('--i', i);
             tiles.appendChild(tile);
         }
 
         const turn = (tile) => {
+            if (tile.classList.contains('tile-door')) return;
             const now = parseInt(tile.style.getPropertyValue('--turn'), 10) || 0;
             tile.style.setProperty('--turn', `${now + 90}deg`);
         };
@@ -67,7 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.pointerType === 'mouse' && e.target.classList.contains('tile')) turn(e.target);
         });
         tiles.addEventListener('click', (e) => {
-            if (e.target.classList.contains('tile')) turn(e.target);
+            if (e.target.classList.contains('tile-door')) {
+                setReality(root.dataset.reality !== 'red');
+            } else if (e.target.classList.contains('tile')) {
+                turn(e.target);
+            }
         });
     }
 
