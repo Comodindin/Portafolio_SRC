@@ -56,9 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.i18n) window.i18n.refresh();
     };
 
-    // Like changing channel on an old TV: the screen cuts to black, the
-    // reality swaps while nothing is visible, then the new one fades in.
+    // Like an old CRT TV: it switches off into a line and a dot, the reality
+    // swaps while the screen is black, then it switches back on.
+    const tv = document.querySelector('.tv');
+    const OFF_MS = 640;
+    const ON_MS = 860;
     let switching = false;
+
     const setReality = (red) => {
         if (reduceMotion.matches) {
             applyReality(red);
@@ -66,14 +70,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (switching) return;
         switching = true;
-        screenFx.classList.add('switching');
-        setTimeout(() => applyReality(red), 320);
+        tv.classList.add('off');
+        setTimeout(() => {
+            applyReality(red);
+            tv.classList.replace('off', 'on');
+            setTimeout(() => {
+                tv.classList.remove('on');
+                switching = false;
+            }, ON_MS);
+        }, OFF_MS);
     };
 
-    screenFx.addEventListener('animationend', () => {
-        screenFx.classList.remove('switching');
-        switching = false;
-    });
     realityToggle.addEventListener('click', () => setReality(root.dataset.reality !== 'red'));
 
     // Flashlight: in the deleted scene, the light follows the pointer

@@ -845,27 +845,107 @@ html[data-reality="red"] .screen-fx::before {
     opacity: 0.045;
 }
 
-/* The cut between realities: an old TV changing channel. The screen goes
-   black with a bright line across the middle, then the other reality fades
-   in. script.js swaps the reality while the screen is dark. */
-.screen-fx::after {
-    content: "";
-    position: absolute;
+/* The cut between realities: an old CRT TV switching off and on.
+   .off  - static creeps in, the picture collapses into a bright line,
+           and the line shrinks to a dot.
+   .on   - the dot stretches back into a line, the picture opens up and
+           the static fades.
+   script.js swaps the reality between the two, while the screen is black. */
+.tv {
+    position: fixed;
     inset: 0;
+    z-index: 1700;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.tv.off,
+.tv.on {
+    visibility: visible;
+}
+
+.tv-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 50.5%;
+    background: #000;
+}
+
+.tv-bar-top {
+    top: 0;
+    transform: translateY(-101%);
+}
+
+.tv-bar-bottom {
+    bottom: 0;
+    transform: translateY(101%);
+}
+
+.tv-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 3px;
+    margin-top: -1.5px;
+    background: #fff;
+    box-shadow: 0 0 14px 3px rgba(255, 255, 255, 0.85), 0 0 48px 10px rgba(170, 195, 255, 0.5);
     opacity: 0;
-    background:
-        linear-gradient(transparent calc(50% - 1px), rgba(255, 255, 255, 0.9) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)),
-        #000;
 }
 
-.screen-fx.switching::after {
-    animation: channel 0.7s ease-in-out 1;
+.tv-static {
+    position: absolute;
+    inset: -20%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+    mix-blend-mode: screen;
+    opacity: 0;
 }
 
-@keyframes channel {
-    0% { opacity: 0; }
-    40%, 55% { opacity: 1; }
-    100% { opacity: 0; }
+/* Switching off */
+.tv.off .tv-bar-top { animation: tv-close-top 0.3s cubic-bezier(0.55, 0, 0.9, 0.45) 0.1s both; }
+.tv.off .tv-bar-bottom { animation: tv-close-bottom 0.3s cubic-bezier(0.55, 0, 0.9, 0.45) 0.1s both; }
+.tv.off .tv-line { animation: tv-line-off 0.62s linear both; }
+.tv.off .tv-static { animation: tv-static-off 0.42s steps(6) both; }
+
+@keyframes tv-close-top { from { transform: translateY(-101%); } to { transform: translateY(0); } }
+@keyframes tv-close-bottom { from { transform: translateY(101%); } to { transform: translateY(0); } }
+
+@keyframes tv-line-off {
+    0%, 60% { opacity: 0; transform: scaleX(1); }
+    66% { opacity: 1; transform: scaleX(1); }
+    90% { opacity: 1; transform: scaleX(0.012) scaleY(1.6); }
+    100% { opacity: 0; transform: scaleX(0.012); }
+}
+
+@keyframes tv-static-off {
+    0% { opacity: 0; transform: translate(0, 0); }
+    30% { opacity: 0.35; transform: translate(-3%, 2%); }
+    60% { opacity: 0.5; transform: translate(2%, -4%); }
+    100% { opacity: 0; transform: translate(-1%, 3%); }
+}
+
+/* Switching on */
+.tv.on .tv-bar-top { animation: tv-open-top 0.45s cubic-bezier(0.1, 0.7, 0.3, 1) 0.18s both; }
+.tv.on .tv-bar-bottom { animation: tv-open-bottom 0.45s cubic-bezier(0.1, 0.7, 0.3, 1) 0.18s both; }
+.tv.on .tv-line { animation: tv-line-on 0.32s ease-out both; }
+.tv.on .tv-static { animation: tv-static-on 0.7s steps(7) 0.15s both; }
+
+@keyframes tv-open-top { from { transform: translateY(0); } to { transform: translateY(-101%); } }
+@keyframes tv-open-bottom { from { transform: translateY(0); } to { transform: translateY(101%); } }
+
+@keyframes tv-line-on {
+    0% { opacity: 1; transform: scaleX(0.012); }
+    55% { opacity: 1; transform: scaleX(1); }
+    100% { opacity: 0; transform: scaleX(1) scaleY(8); }
+}
+
+@keyframes tv-static-on {
+    0% { opacity: 0.55; transform: translate(0, 0); }
+    40% { opacity: 0.3; transform: translate(3%, -2%); }
+    100% { opacity: 0; transform: translate(-2%, 4%); }
 }
 
 @keyframes blink {
