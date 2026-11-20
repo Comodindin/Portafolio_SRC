@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-reality="blue">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VITALIA case study | Sarai Rosas</title>
+    <meta name="author" content="Sarai Rosas">
+    <meta name="description" content="VITALIA, from counting to awareness: a nutrition app that tracks what you eat without guilt. Case study by Sarai Rosas.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="VITALIA case study | Sarai Rosas">
+    <meta property="og:description" content="A nutrition app that tracks what you eat without guilt: research, decisions and design process.">
+    <meta property="og:url" content="https://comodindin.github.io/Portafolio_SRC/vitalia.html">
+    <meta property="og:image" content="https://comodindin.github.io/Portafolio_SRC/assets/images/share-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="canonical" href="https://comodindin.github.io/Portafolio_SRC/vitalia.html">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-title="vtPageTitle">
+    <a class="skip-link" href="#case" data-i18n="vtSkip">Skip to the case study</a>
+
+    <div class="screen">
+    <header class="site-header">
+        <nav class="container" aria-label="Main navigation" data-i18n-aria="navLabel">
+            <a class="logo" href="index.html">Sarai Rosas</a>
+            <div class="nav-right">
+                <ul id="nav-menu">
+                    <li><a href="index.html#work" data-i18n="navWork">Work</a></li>
+                    <li><a href="index.html#freelance" data-i18n="navFreelance">Freelance</a></li>
+                    <li><a href="index.html#experience" data-i18n="navExperience">Experience</a></li>
+                    <li class="only-red"><a href="index.html#deleted" data-i18n="navDeleted">Discarded</a></li>
+                    <li><a href="index.html#about" data-i18n="navAbout">About</a></li>
+                    <li><a href="index.html#contact" data-i18n="navContact">Contact</a></li>
+                </ul>
+                <button type="button" class="reality-toggle" aria-pressed="false">
+                    <span class="reality-dot" aria-hidden="true"></span>
+                    <span class="reality-label" data-i18n="realityLabel">Deleted scene</span>
+                </button>
+                <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria="langLabel">
+                    <button type="button" data-lang="es" aria-pressed="false" lang="es">ES</button>
+                    <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+                </div>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="case">
+        <section class="case-hero">
+            <div class="container">
+                <a class="case-back" href="index.html#work" data-i18n="vtBack">← All work</a>
+                <p class="kicker" data-i18n="vtKicker">Case study, mobile app design</p>
+                <h1 data-text="VITALIA">VITALIA</h1>
+                <p class="case-lead" data-i18n="vtLead">From counting to awareness: a nutrition app that helps you keep track of what you eat without turning food into guilt.</p>
+
+                <dl class="case-facts">
+                    <div><dt data-i18n="vtRoleLabel">Role</dt><dd data-i18n="vtRole">Research, UX/UI and iOS development</dd></div>
+                    <div><dt data-i18n="vtContextLabel">Context</dt><dd data-i18n="vtContext">Mobile app design course, 9th semester, Universidad Iberoamericana Puebla</dd></div>
+                    <div><dt data-i18n="vtUsersLabel">For</dt><dd data-i18n="vtUsers">Young women at university</dd></div>
+                    <div><dt data-i18n="vtToolsLabel">Built with</dt><dd>Swift (iOS)</dd></div>
+                </dl>
+            </div>
+            <div class="container">
+                <img class="case-cover" src="assets/images/vitalia.jpg" width="1600" height="1000" alt="VITALIA app screens: a breakfast recipe, the splash screen and the wellness onboarding, next to the avocado mascot">
+            </div>
+        </section>
+
+        <section class="case-block">
+            <div class="container case-grid">
+                <h2 data-i18n="vtProblemTitle">The problem</h2>
+                <div class="case-text">
+                    <p data-i18n="vtProblem1">Diet and fitness apps have become the default tool for eating better. But they're built around counting calories and controlling weight, and research has linked that focus to eating disorder symptoms: obsession with numbers, dependence on the app, anxiety about results, rigid diets and guilt when a goal is missed.</p>
+                    <p data-i18n="vtProblem2">In one study, 21 of 24 participants had used MyFitnessPal. The colours it shows when you go over or under your calories worked like a game score, and for many women they hurt more than they helped.</p>
+                    <blockquote class="case-quote" data-i18n="vtInsight">The problem isn't a lack of data. It's the way the data is shown.</blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-block case-tint">
+            <div class="container case-grid">
+                <h2 data-i18n="vtContextTitle">The context in Mexico</h2>
+                <div class="case-text">
+                    <p data-i18n="vtContext1">Guilt isn't the only barrier. According to the Mexican Health and Nutrition Survey, the main obstacles are money and time, on top of high rates of obesity, diabetes and heart disease.</p>
+                    <div class="case-stats">
+                        <p><strong>58.6%</strong> <span data-i18n="vtStat1">say they don't have enough money to buy healthy food</span></p>
+                        <p><strong>51.2%</strong> <span data-i18n="vtStat2">say they don't have time to exercise</span></p>
+                    </div>
+                    <p class="case-question" data-i18n="vtQuestion">How might we design an app that doesn't just log food, but changes people's relationship with it: less guilt, and habits that are affordable and sustainable?</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-block">
+            <div class="container case-grid">
+                <h2 data-i18n="vtProcessTitle">Process</h2>
+                <div class="case-text">
+                    <p data-i18n="vtProcessIntro">I followed Design Thinking, a human-centred process in five iterative phases.</p>
+                    <ol class="case-steps">
+                        <li><h3 data-i18n="vtStep1">Empathize</h3><p data-i18n="vtStep1Text">Reviewed studies on how diet apps affect their users, to understand their pain points beyond the features.</p></li>
+                        <li><h3 data-i18n="vtStep2">Define</h3><p data-i18n="vtStep2Text">Added the local context (money and time) and turned it into one design question.</p></li>
+                        <li><h3 data-i18n="vtStep3">Ideate</h3><p data-i18n="vtStep3Text">Defined four value propositions: affordable nutrition, psychological wellbeing, personalised health and education.</p></li>
+                        <li><h3 data-i18n="vtStep4">Prototype</h3><p data-i18n="vtStep4Text">Built a low-fidelity prototype covering onboarding, the dashboard, “Eat without guilt” and affordable recipes, then developed it as an iOS app.</p></li>
+                        <li><h3 data-i18n="vtStep5">Test</h3><p data-i18n="vtStep5Text">Planned usability tests, interviews with users and an emotional impact check: does the app reduce stress and the urge to count?</p></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-block case-tint">
+            <div class="container case-grid">
+                <h2 data-i18n="vtDecisionsTitle">Design decisions</h2>
+                <div class="case-text">
+                    <ul class="case-decisions">
+                        <li>
+                            <h3 data-i18n="vtD1">A gauge instead of a number</h3>
+                            <p data-i18n="vtD1Text">The dashboard doesn't show a calorie count. A visual meter shows macronutrients, micronutrients and water, rewarding variety and balance instead of a total to beat.</p>
+                        </li>
+                        <li>
+                            <h3 data-i18n="vtD2">Eat without guilt</h3>
+                            <p data-i18n="vtD2Text">A space with positive messages and self-care reminders: drink water, move, rest. Calories can be hidden, logging can be paused, and a craving is allowed.</p>
+                        </li>
+                        <li>
+                            <h3 data-i18n="vtD3">Recipes that fit the budget</h3>
+                            <p data-i18n="vtD3Text">Practical weekly recipes with cheap, easy-to-find ingredients. Each one shows its estimated cost and preparation time.</p>
+                        </li>
+                        <li>
+                            <h3 data-i18n="vtD4">Health on your terms</h3>
+                            <p data-i18n="vtD4Text">Users can add medical conditions to get adapted recommendations and connect with specialists. Educational content takes apart the idea of “being on a diet”.</p>
+                        </li>
+                    </ul>
+                    <p class="note" data-i18n="vtWatch">Next idea: a smartwatch companion for gentle nudges like “drink water” or step updates.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-block">
+            <div class="container case-grid">
+                <h2 data-i18n="vtSourcesTitle">Sources</h2>
+                <div class="case-text">
+                    <ol class="case-sources">
+                        <li>Eikey, E. V. (2021). Effects of diet and fitness apps on eating disorder behaviours: qualitative study. <cite>BJPsych Open</cite>, 7(5). <a href="https://doi.org/10.1192/bjo.2021.1011" target="_blank" rel="noopener noreferrer">doi.org/10.1192/bjo.2021.1011</a></li>
+                        <li>Zavala, G. A., Ainscough, T. S., &amp; Jimenez‐Moreno, A. C. (2022). Barriers to a healthy diet and physical activity in Mexican adults: results from the Mexican Health and Nutrition Survey. <cite>Nutrition Bulletin</cite>, 47(3), 298–306. <a href="https://doi.org/10.1111/nbu.12568" target="_blank" rel="noopener noreferrer">doi.org/10.1111/nbu.12568</a></li>
+                    </ol>
+                    <div class="hero-actions">
+                        <a href="https://www.behance.net/gallery/239231705/VITALIA" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="vtBehance">See the screens on Behance</a>
+                        <a href="index.html#work" class="btn btn-secondary" data-i18n="vtMore">Back to all work</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Sarai Rosas. <span data-i18n="rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+    </div>
+
+    <div class="screen-fx" aria-hidden="true"></div>
+    <div class="tv" aria-hidden="true">
+        <span class="tv-static"></span>
+        <span class="tv-line"></span>
+        <span class="tv-dot"></span>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

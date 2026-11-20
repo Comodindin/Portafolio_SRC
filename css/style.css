@@ -1055,6 +1055,235 @@ html[data-reality="red"] .tarot li:hover img {
     }
 }
 
+/* Case study pages */
+.case-hero {
+    padding: 4rem 0 5rem;
+}
+
+.case-back {
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    color: var(--cobalt);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.case-back:hover {
+    text-decoration: underline;
+}
+
+.case-lead {
+    max-width: 40rem;
+    margin-top: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    line-height: 1.45;
+    color: var(--ink-soft);
+}
+
+.case-facts {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+}
+
+.case-facts dt {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--cobalt);
+    margin-bottom: 0.3rem;
+}
+
+.case-facts dd {
+    line-height: 1.45;
+}
+
+.case-cover {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+}
+
+.case-block {
+    padding: 5.5rem 0;
+}
+
+.case-tint {
+    background: var(--tint);
+}
+
+/* Heading in its own column, text in a readable measure next to it */
+.case-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 2rem 4rem;
+    align-items: start;
+}
+
+.case-grid h2 {
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    margin-bottom: 0;
+}
+
+.case-text {
+    max-width: 42rem;
+}
+
+.case-text > p + p {
+    margin-top: 1.1rem;
+}
+
+.case-quote {
+    margin: 2.25rem 0 0;
+    padding-left: 1.25rem;
+    border-left: 4px solid var(--yolk);
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+    font-weight: 700;
+    font-stretch: 112%;
+    line-height: 1.25;
+    color: var(--ink);
+}
+
+.case-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.case-stats p {
+    color: var(--ink-soft);
+    line-height: 1.4;
+}
+
+.case-stats strong {
+    display: block;
+    font-size: clamp(2.6rem, 5vw, 3.6rem);
+    font-weight: 800;
+    font-stretch: var(--wide);
+    line-height: 1;
+    color: var(--cobalt);
+    margin-bottom: 0.4rem;
+}
+
+.case-question {
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.45;
+}
+
+/* Design Thinking is a real sequence, so the steps are numbered */
+.case-steps {
+    list-style: none;
+    counter-reset: step;
+    margin-top: 2rem;
+}
+
+.case-steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 1.75rem 3.25rem;
+}
+
+.case-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: -0.1rem;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--cobalt);
+    color: var(--paper);
+    font-weight: 800;
+}
+
+.case-steps li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 1.02rem;
+    top: 2.3rem;
+    bottom: 0.3rem;
+    width: 2px;
+    background: var(--line);
+}
+
+.case-steps h3,
+.case-decisions h3 {
+    margin-bottom: 0.4rem;
+}
+
+.case-steps p,
+.case-decisions p {
+    color: var(--ink-soft);
+}
+
+.case-decisions {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.25rem 2rem;
+}
+
+.case-decisions li {
+    padding-top: 1rem;
+    border-top: 3px solid var(--cobalt);
+}
+
+.case-text .note {
+    margin-top: 2.5rem;
+}
+
+.case-sources {
+    padding-left: 1.25rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+}
+
+.case-sources li + li {
+    margin-top: 0.75rem;
+}
+
+.case-sources a {
+    color: var(--cobalt);
+    word-break: break-word;
+}
+
+.case-text .hero-actions {
+    margin-top: 2.5rem;
+}
+
+@media (max-width: 900px) {
+    .case-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .case-hero {
+        padding-top: 2.5rem;
+    }
+
+    .case-block {
+        padding: 4rem 0;
+    }
+
+    .case-decisions,
+    .case-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Surfaces with fixed colours in the blue cut */
 html[data-reality="red"] .site-header {
     background: rgba(10, 5, 5, 0.9);
