@@ -1426,6 +1426,199 @@ html[data-reality="red"] .tarot li:hover img {
     border-radius: 1.5rem;
 }
 
+.case-title-long {
+    font-size: clamp(2.6rem, 6.5vw, 5.5rem);
+    max-width: 16ch;
+}
+
+.user-groups {
+    margin: 1.25rem 0 2.5rem;
+    padding-left: 1.2rem;
+    color: var(--ink-soft);
+}
+
+.user-groups li + li {
+    margin-top: 0.4rem;
+}
+
+.persona-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.persona-pair .persona {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+.persona-pair .case-quote {
+    font-size: 1.1rem;
+    margin: 1.25rem 0 1.5rem;
+}
+
+.persona-grid-single {
+    grid-template-columns: 1fr;
+}
+
+.persona-pair + .note {
+    margin-top: 2rem;
+}
+
+.principles {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.principles li {
+    padding: 0.9rem 1rem;
+    border: 2px solid var(--line);
+    border-radius: var(--radius);
+    font-weight: 700;
+}
+
+/* The rooms are visited in order, so they're numbered */
+.rooms {
+    list-style: none;
+    counter-reset: room;
+    margin-top: 2rem;
+    display: grid;
+    gap: 1.75rem;
+}
+
+.rooms li {
+    counter-increment: room;
+    position: relative;
+    padding-left: 3.25rem;
+}
+
+.rooms li::before {
+    content: counter(room);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--cobalt);
+    color: var(--paper);
+    font-weight: 800;
+}
+
+.rooms h3 {
+    margin-bottom: 0.2rem;
+}
+
+.room-task {
+    font-weight: 700;
+    color: var(--cobalt);
+    margin-bottom: 0.35rem;
+}
+
+.rooms p:not(.room-task) {
+    color: var(--ink-soft);
+}
+
+/* Flow diagram: steps on a vertical line, choices as diamonds */
+.flow {
+    list-style: none;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.flow li {
+    position: relative;
+    padding: 0.5rem 0.9rem;
+    margin-left: 1.5rem;
+    border: 2px solid var(--cobalt);
+    border-radius: var(--radius);
+    background: var(--paper);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.flow li + li {
+    margin-top: 1.1rem;
+}
+
+.flow li + li::before {
+    content: "";
+    position: absolute;
+    left: 1.25rem;
+    top: calc(-1.1rem - 2px);
+    width: 2px;
+    height: 1.1rem;
+    background: var(--cobalt);
+}
+
+.flow .flow-end {
+    border-radius: 999px;
+    background: var(--cobalt);
+    color: var(--paper);
+}
+
+.flow .flow-choice {
+    border-style: dashed;
+    border-color: var(--yolk);
+}
+
+.flow .flow-choice::after {
+    content: "";
+    position: absolute;
+    left: -1.6rem;
+    top: 50%;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-top: -0.4rem;
+    background: var(--yolk);
+    transform: rotate(45deg);
+}
+
+.flow em {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin-left: 0.35rem;
+}
+
+.palettes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.palette-strip {
+    display: grid;
+    grid-template-columns: repeat(var(--n), 1fr);
+    height: 7rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.palettes figcaption {
+    margin-top: 0.6rem;
+    font-weight: 700;
+}
+
+.case-video {
+    margin-top: 2rem;
+}
+
+.case-video + .text-link {
+    margin-bottom: 0.5rem;
+}
+
 /* Identity: the only place VITALIA's own colours appear */
 .naming {
     font-size: clamp(1.3rem, 2.6vw, 1.8rem);
@@ -1491,6 +1684,7 @@ html[data-reality="red"] .tarot li:hover img {
     color: var(--ink-soft);
 }
 
+html[data-reality="red"] .palette-strip,
 html[data-reality="red"] .swatch,
 html[data-reality="red"] .nutri svg,
 html[data-reality="red"] .naming strong {
@@ -1530,7 +1724,10 @@ html[data-reality="red"] .naming strong {
     }
 
     .identity-row,
-    .demo {
+    .demo,
+    .persona-pair,
+    .principles,
+    .palettes {
         grid-template-columns: 1fr;
     }
 
