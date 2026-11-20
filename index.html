@@ -32,7 +32,7 @@
             }
         } catch (e) { /* storage blocked: skip the intro */ }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=20261124">
+    <link rel="stylesheet" href="css/style.css?v=20261125">
 </head>
 <body>
     <a class="skip-link" href="#work" data-i18n="skip">Skip to work</a>
@@ -88,23 +88,33 @@
         <section id="work">
             <div class="container">
                 <h2 data-i18n="workTitle">Selected work</h2>
+                <div class="work-filter" role="group" aria-label="Filter projects" data-i18n-aria="filterLabel">
+                    <button type="button" data-filter="all" aria-pressed="true" data-i18n="filterAll">All</button>
+                    <button type="button" data-filter="ux" aria-pressed="false" data-i18n="filterUx">UI/UX &amp; data</button>
+                    <button type="button" data-filter="games" aria-pressed="false" data-i18n="filterGames">Games &amp; 3D</button>
+                    <button type="button" data-filter="animation" aria-pressed="false" data-i18n="filterAnim">Animation</button>
+                </div>
                 <div class="work-grid">
 
-                    <a href="vitalia.html" class="project-card">
-                        <div class="image-container">
+                    <article class="project-card" data-cat="ux">
+                        <a class="image-container" href="vitalia.html" tabindex="-1" aria-hidden="true">
                             <img src="assets/images/vitalia.jpg" alt="VITALIA app screens showing the onboarding flow, a recipe view and the wellness tracker">
-                        </div>
+                        </a>
                         <ul class="tags">
                             <li>iOS</li><li>Swift</li><li data-i18n="tagProduct">Product design</li>
                         </ul>
                         <h3 data-i18n="p1Title">VITALIA: Health &amp; Wellness App</h3>
                         <p data-i18n="p1Desc">A functional iOS app built around one deliberate product decision: replacing calorie-counting pressure with habit tracking and emotional journaling. Covers onboarding with a personalized assessment, macro and hydration dashboards, sleep logging, recipes and guided breathing.</p>
-                    </a>
-
-                    <div class="project-card">
-                        <div class="image-container">
-                            <img src="assets/images/unreal-experience.jpg" loading="lazy" decoding="async" alt="Gameplay view from Echoes of the Past, Voices of the Present">
+                        <div class="card-links">
+                            <a class="card-primary" href="vitalia.html" data-i18n="caseStudy">Case study →</a>
+                            <a href="https://youtube.com/shorts/GRF5VCPTp_w" target="_blank" rel="noopener noreferrer" data-i18n="cardDemo">App demo ↗</a>
                         </div>
+                    </article>
+
+                    <article class="project-card" data-cat="games">
+                        <a class="image-container" href="echoes.html" tabindex="-1" aria-hidden="true">
+                            <img src="assets/images/unreal-experience.jpg" loading="lazy" decoding="async" alt="Gameplay view from Echoes of the Past, Voices of the Present">
+                        </a>
                         <ul class="tags">
                             <li>Unreal Engine</li><li data-i18n="tagSerious">Serious games</li><li data-i18n="tag3D">3D design</li>
                         </ul>
@@ -113,36 +123,41 @@
                         <p class="card-role" data-i18n="p2Role">My role: research and Unreal Engine programming; I also programmed the first prototype in Unity.</p>
                         <p class="card-shown" data-i18n="p2Shown">Exhibited at Museo Amparo, Puebla.</p>
                         <div class="card-links">
-                            <a href="echoes.html" data-i18n="caseStudy">Read the case study</a>
-                            <a href="https://youtu.be/jsRfcmPOvq0" target="_blank" rel="noopener noreferrer" data-i18n="p2Final">Watch final gameplay ↗</a>
-                            <a href="https://www.youtube.com/watch?v=3g7ZTem0jRA" target="_blank" rel="noopener noreferrer" data-i18n="p2First">Watch first version ↗</a>
+                            <a class="card-primary" href="echoes.html" data-i18n="caseStudy">Case study →</a>
+                            <a href="https://youtu.be/jsRfcmPOvq0" target="_blank" rel="noopener noreferrer" data-i18n="cardGameplay">Gameplay ↗</a>
                         </div>
-                    </div>
+                    </article>
 
-                    <a href="https://comodindin.github.io/Geografiaas-del-Silencio-Fem/" target="_blank" rel="noopener noreferrer" class="project-card">
-                        <div class="image-container">
+                    <article class="project-card" data-cat="ux">
+                        <a class="image-container" href="https://comodindin.github.io/Geografiaas-del-Silencio-Fem/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
                             <img src="assets/images/femicide-project.jpg" loading="lazy" decoding="async" alt="Geografías del Silencio web interface showing the interactive map of femicide data in Mexico">
-                        </div>
+                        </a>
                         <ul class="tags">
                             <li>UI/UX</li><li>Frontend</li><li data-i18n="tagDataViz">Data viz</li>
                         </ul>
                         <h3>Geografías del Silencio</h3>
+                        <p class="card-translation" data-i18n="p3Translation">“Geographies of Silence”</p>
                         <p data-i18n="p3Desc">A custom web interface built for the Forensic Architecture Laboratory to document and visualize data on femicide in Mexico, turning forensic research into a cartographic narrative anyone can read.</p>
-                    </a>
-
-                    <a href="https://comodindin.github.io/Laboratorio-de-Arquitectura-Forense/" target="_blank" rel="noopener noreferrer" class="project-card">
-                        <div class="image-container">
-                            <img src="assets/images/laf-dashboard.jpg" loading="lazy" decoding="async" alt="The LAF Dashboard showing participatory mapping data layers">
+                        <div class="card-links">
+                            <a class="card-primary" href="https://comodindin.github.io/Geografiaas-del-Silencio-Fem/" target="_blank" rel="noopener noreferrer" data-i18n="cardLive">Live site ↗</a>
                         </div>
+                    </article>
+
+                    <article class="project-card" data-cat="ux">
+                        <a class="image-container" href="https://comodindin.github.io/Laboratorio-de-Arquitectura-Forense/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                            <img src="assets/images/laf-dashboard.jpg" loading="lazy" decoding="async" alt="The LAF Dashboard showing participatory mapping data layers">
+                        </a>
                         <ul class="tags">
                             <li data-i18n="tagUrbanism">Social urbanism</li><li data-i18n="tagResearch">Research</li><li data-i18n="tagCartography">Cartography</li>
                         </ul>
                         <h3 data-i18n="p4Title">The LAF Dashboard</h3>
                         <p data-i18n="p4Desc">Systematization and qualitative analysis of participatory mapping data at IBERO Puebla, translating citizen narratives into structured information layers for social urbanism research.</p>
-                    </a>
+                        <div class="card-links">
+                            <a class="card-primary" href="https://comodindin.github.io/Laboratorio-de-Arquitectura-Forense/" target="_blank" rel="noopener noreferrer" data-i18n="cardLive">Live site ↗</a>
+                        </div>
+                    </article>
 
-                    <!-- TODO: once you have an itch.io page or a gameplay clip, change this <div> to an <a href="..."> like the cards above -->
-                    <div class="project-card">
+                    <article class="project-card" data-cat="games">
                         <div class="image-container">
                             <img src="assets/images/resource.jpg" loading="lazy" decoding="async" alt="Bedroom environment from RE-SOURCE, lit by a lamp and a CRT monitor at night">
                             <span class="status-badge" data-i18n="inProduction">In production</span>
@@ -152,19 +167,27 @@
                         </ul>
                         <h3 data-i18n="p5Title">RE-SOURCE: Media Restoration Suite</h3>
                         <p data-i18n="p5Desc">A first-person analog horror game built with 2D assets in a 3D space, currently in final development. Concept, art direction and in-engine implementation.</p>
-                    </div>
-
-                    <a href="identidad.html" class="project-card">
-                        <div class="image-container">
-                            <img src="assets/images/problemas-identidad.jpg" loading="lazy" decoding="async" alt="Frame from Problemas de Identidad showing Ian at a birthday party, surrounded by family">
+                        <div class="card-links">
+                            <span class="card-soon" data-i18n="cardSoon">Demo in production</span>
                         </div>
+                    </article>
+
+                    <article class="project-card" data-cat="animation">
+                        <a class="image-container" href="identidad.html" tabindex="-1" aria-hidden="true">
+                            <img src="assets/images/problemas-identidad.jpg" loading="lazy" decoding="async" alt="Frame from Problemas de Identidad showing Ian at a birthday party, surrounded by family">
+                        </a>
                         <ul class="tags">
                             <li data-i18n="tag2DAnim">2D animation</li><li data-i18n="tagShort">Short film</li><li data-i18n="tagStory">Storytelling</li>
                         </ul>
                         <h3>Problemas de Identidad</h3>
+                        <p class="card-translation" data-i18n="p6Translation">“Identity Problems”</p>
                         <p data-i18n="p6Desc">An animated short about Ian, whose family and friends won't accept that they want to transition. Caught between them, Ian ends up living a double life, hiding who they really are.</p>
                         <p class="card-role" data-i18n="p6Role">My role: writing the script, animating scenes in After Effects, sound effects we made ourselves and putting the whole short together.</p>
-                    </a>
+                        <div class="card-links">
+                            <a class="card-primary" href="identidad.html" data-i18n="caseStudy">Case study →</a>
+                            <a href="https://youtu.be/hJZ-tJnwZ8I" target="_blank" rel="noopener noreferrer" data-i18n="cardShort">Watch the short ↗</a>
+                        </div>
+                    </article>
 
                 </div>
             </div>
@@ -655,7 +678,7 @@
         <span class="tv-dot"></span>
     </div>
 
-    <script src="js/i18n.js?v=20261124"></script>
-    <script src="js/script.js?v=20261124"></script>
+    <script src="js/i18n.js?v=20261125"></script>
+    <script src="js/script.js?v=20261125"></script>
 </body>
 </html>

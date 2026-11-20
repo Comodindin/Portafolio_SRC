@@ -353,14 +353,21 @@ section {
     gap: 4rem 2.5rem;
 }
 
+/* Every card has the same anatomy: picture, tags, title, text, and a footer
+   with explicit actions pinned to the bottom so the buttons line up per row */
 .project-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
     color: inherit;
-    text-decoration: none;
+}
+
+.project-card[hidden] {
+    display: none;
 }
 
 .image-container {
     position: relative;
+    display: block;
     aspect-ratio: 16 / 10;
     overflow: hidden;
     border-radius: var(--radius);
@@ -378,15 +385,9 @@ section {
     object-fit: cover;
 }
 
-a.project-card:hover .image-container {
+a.image-container:hover,
+.project-card:has(.card-primary:hover) .image-container {
     outline-color: var(--yolk);
-}
-
-a.project-card:hover h3 {
-    text-decoration: underline;
-    text-decoration-color: var(--yolk);
-    text-decoration-thickness: 3px;
-    text-underline-offset: 4px;
 }
 
 .project-card h3 {
@@ -424,29 +425,79 @@ a.project-card:hover h3 {
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
-    margin-top: 0.9rem;
+    margin-top: auto;
+    padding-top: 1.1rem;
 }
 
-.card-links a {
+.card-links a,
+.card-soon {
     font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
-    color: var(--cobalt);
-    border: 1.5px solid var(--cobalt);
     border-radius: 999px;
     padding: 0.4rem 0.9rem;
+}
+
+.card-links a {
+    color: var(--cobalt);
+    border: 1.5px solid var(--cobalt);
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.card-links a:first-child,
-.card-links a:hover {
+.card-links a:hover,
+.card-links .card-primary {
     background: var(--cobalt);
     color: #fff;
 }
 
-.card-links a:first-child:hover {
+.card-links .card-primary:hover {
     background: var(--ink);
     border-color: var(--ink);
+}
+
+/* Not a link: shown in the same spot so the card doesn't look broken */
+.card-soon {
+    color: var(--ink-soft);
+    border: 1.5px dashed var(--line);
+}
+
+/* A short translation under Spanish titles, only in the English version */
+.card-translation {
+    margin: -0.35rem 0 0.6rem;
+    font-size: 0.9rem !important;
+    font-style: italic;
+}
+
+.card-translation:empty {
+    display: none;
+}
+
+.work-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: -1rem 0 2.5rem;
+}
+
+.work-filter button {
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--cobalt);
+    background: transparent;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 0.45rem 1rem;
+    cursor: pointer;
+}
+
+.work-filter button:hover {
+    border-color: var(--cobalt);
+}
+
+.work-filter button[aria-pressed="true"] {
+    background: var(--cobalt);
+    border-color: var(--cobalt);
     color: var(--paper);
 }
 
@@ -1938,6 +1989,7 @@ html[data-reality="red"] video {
 }
 
 html[data-reality="red"] .project-card:hover img,
+html[data-reality="red"] .project-card:focus-within img,
 html[data-reality="red"] .media-card:hover img,
 html[data-reality="red"] .media-card:hover video {
     filter: none;

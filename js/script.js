@@ -238,6 +238,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Work filter: show only the projects for one kind of role
+    const filterButtons = document.querySelectorAll('.work-filter [data-filter]');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const cat = btn.dataset.filter;
+            filterButtons.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+            document.querySelectorAll('.work-grid .project-card').forEach(card => {
+                card.hidden = cat !== 'all' && card.dataset.cat !== cat;
+            });
+        });
+    });
+
     // Carousels: the track scrolls natively; buttons and the counter just drive it
     document.querySelectorAll('[data-carousel]').forEach(carousel => {
         const track = carousel.querySelector('.carousel-track');
