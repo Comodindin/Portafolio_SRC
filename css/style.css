@@ -447,6 +447,14 @@ a.project-card:hover h3 {
     color: var(--ink-soft);
 }
 
+/* A side remark about the material shown, set apart from the description */
+.note {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--yolk);
+    font-size: 0.95rem;
+}
+
 .text-link {
     display: inline-block;
     margin-top: 1rem;
