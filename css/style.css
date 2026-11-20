@@ -413,6 +413,13 @@ a.project-card:hover h3 {
     color: var(--ink) !important;
 }
 
+.card-shown {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--cobalt) !important;
+}
+
 .card-links {
     display: flex;
     flex-wrap: wrap;
