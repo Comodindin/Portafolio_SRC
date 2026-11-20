@@ -55,7 +55,7 @@
             p5Desc: "An indie forensic-investigation and psychological horror game set in 1995. You play David, a technician who restores damaged VHS tapes for an anonymous client, on a Windows 95-style desktop and a CRT monitor. Over five days you tune tapes, dig through a DOS terminal and walk around the apartment, and every verdict you sign leads to one of four endings.",
             p6Desc: "An animated short about Ian, whose family and friends won't accept that they want to transition. Caught between them, Ian ends up living a double life, hiding who they really are.",
 
-            flIntro: "Instagram content for an integrative medicine practice in Oaxaca: art direction, editorial design and copywriting for 8 carousels (52 pieces) that explain each therapy in plain language, plus seasonal campaigns and a reel. The content is in Spanish.",
+            flIntro: "Instagram content in Spanish for a local audience: an integrative medicine practice in Oaxaca. Art direction, editorial design and copywriting for 8 carousels (52 pieces) that explain each therapy in plain language, plus seasonal campaigns and a reel.",
             flInstagram: 'See @marinareyesintegral on Instagram ↗',
             flHint: 'Swipe or use the arrows to flip through each carousel.',
             slidePrev: 'Previous slide',
