@@ -1414,6 +1414,18 @@ html[data-reality="red"] .tarot li:hover img {
     color: var(--paper);
 }
 
+.demo {
+    display: grid;
+    grid-template-columns: 15rem minmax(0, 1fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+.video-thumb-vertical {
+    aspect-ratio: 618 / 1280;
+    border-radius: 1.5rem;
+}
+
 /* Identity: the only place VITALIA's own colours appear */
 .naming {
     font-size: clamp(1.3rem, 2.6vw, 1.8rem);
@@ -1517,8 +1529,13 @@ html[data-reality="red"] .naming strong {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .identity-row {
+    .identity-row,
+    .demo {
         grid-template-columns: 1fr;
+    }
+
+    .video-thumb-vertical {
+        max-width: 15rem;
     }
 }
 
