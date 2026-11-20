@@ -56,29 +56,95 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.i18n) window.i18n.refresh();
     };
 
-    // Like an old CRT TV: it switches off into a line and a dot, the reality
-    // swaps while the screen is black, then it switches back on.
-    const tv = document.querySelector('.tv');
-    const OFF_MS = 640;
-    const ON_MS = 860;
+    // Like an old CRT TV. Off: the picture squashes into a bright line,
+    // shrinks to a dot and the dot glows out. The reality swaps in the dark.
+    // On: the dot stretches into a line and opens into the new picture.
+    const screen = document.querySelector('.screen');
+    const tvStatic = document.querySelector('.tv-static');
+    const tvDot = document.querySelector('.tv-dot');
+    // Line and dot sizes depend on the window, so they're set on each switch
+    let LINE = 'scale(1, 0.006)';
+    let DOT = 'scale(0.004, 0.006)';
     let switching = false;
 
-    const setReality = (red) => {
-        if (reduceMotion.matches) {
+    const tvLine = document.querySelector('.tv-line');
+
+    const crtOff = () => {
+        tvStatic.animate(
+            [{ opacity: 0 }, { opacity: 0.35, offset: 0.3 }, { opacity: 0 }],
+            { duration: 420, easing: 'steps(6)' }
+        );
+        // The bright line takes over as the picture gets thin, then shrinks with it
+        tvLine.animate([
+            { opacity: 0, transform: 'scaleX(1)' },
+            { opacity: 0, transform: 'scaleX(1)', offset: 0.4 },
+            { opacity: 1, transform: 'scaleX(1)', offset: 0.55, easing: 'cubic-bezier(0.5, 0, 0.75, 0)' },
+            { opacity: 1, transform: 'scaleX(0.003)', offset: 0.9 },
+            { opacity: 0, transform: 'scaleX(0.003)' }
+        ], { duration: 560, fill: 'forwards' });
+        // Afterglow: the dot lingers a moment after the picture is gone
+        tvDot.animate(
+            [{ opacity: 0 }, { opacity: 0, offset: 0.55 }, { opacity: 1, offset: 0.62 }, { opacity: 0.9, offset: 0.75 }, { opacity: 0 }],
+            { duration: 900 }
+        );
+        return screen.animate([
+            { transform: 'scale(1, 1)', easing: 'cubic-bezier(0.7, 0, 0.84, 0)' },
+            { transform: LINE, offset: 0.55, easing: 'cubic-bezier(0.5, 0, 0.75, 0)' },
+            { transform: DOT, offset: 0.9 },
+            { transform: DOT, opacity: 0 }
+        ], { duration: 560, fill: 'forwards' }).finished;
+    };
+
+    const crtOn = () => {
+        tvStatic.animate(
+            [{ opacity: 0 }, { opacity: 0.45, offset: 0.35 }, { opacity: 0 }],
+            { duration: 700, easing: 'steps(7)' }
+        );
+        tvLine.animate([
+            { opacity: 1, transform: 'scaleX(0.003)', easing: 'cubic-bezier(0.2, 0.7, 0.3, 1)' },
+            { opacity: 1, transform: 'scaleX(1)', offset: 0.3 },
+            { opacity: 0, transform: 'scaleX(1) scaleY(6)', offset: 0.5 },
+            { opacity: 0, transform: 'scaleX(1)' }
+        ], { duration: 640 });
+        return screen.animate([
+            { transform: DOT, opacity: 0, easing: 'cubic-bezier(0.2, 0.7, 0.3, 1)' },
+            { transform: LINE, opacity: 1, offset: 0.3, easing: 'cubic-bezier(0.15, 0.75, 0.25, 1)' },
+            { transform: 'scale(1, 1.025)', offset: 0.72 },
+            { transform: 'scale(1, 0.992)', offset: 0.86 },
+            { transform: 'scale(1, 1)' }
+        ], { duration: 640 }).finished;
+    };
+
+    const setReality = async (red) => {
+        if (reduceMotion.matches || !screen.animate) {
             applyReality(red);
             return;
         }
         if (switching) return;
         switching = true;
-        tv.classList.add('off');
-        setTimeout(() => {
-            applyReality(red);
-            tv.classList.replace('off', 'on');
-            setTimeout(() => {
-                tv.classList.remove('on');
-                switching = false;
-            }, ON_MS);
-        }, OFF_MS);
+
+        // Only the part of the page on screen is the "picture": clip to it and
+        // squash around its middle, so a 4px line is 4px whatever the page length
+        const top = window.scrollY;
+        const vh = window.innerHeight;
+        const below = Math.max(0, screen.offsetHeight - top - vh);
+        LINE = `scale(1, ${4 / vh})`;
+        DOT = `scale(${5 / window.innerWidth}, ${4 / vh})`;
+        screen.style.clipPath = `inset(${top}px 0 ${below}px 0)`;
+        screen.style.transformOrigin = `50% ${top + vh / 2}px`;
+        root.classList.add('crt');
+
+        const off = await crtOff();
+        applyReality(red);
+        await new Promise(r => setTimeout(r, 160));
+        off.cancel();
+        tvLine.getAnimations().forEach(an => an.cancel());
+        await crtOn();
+
+        root.classList.remove('crt');
+        screen.style.transformOrigin = '';
+        screen.style.clipPath = '';
+        switching = false;
     };
 
     realityToggle.addEventListener('click', () => setReality(root.dataset.reality !== 'red'));

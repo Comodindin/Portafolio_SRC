@@ -29,6 +29,8 @@
 <body>
     <a class="skip-link" href="#work" data-i18n="skip">Skip to work</a>
 
+    <!-- The "picture": everything the CRT transition squashes and stretches -->
+    <div class="screen">
     <header class="site-header">
         <nav class="container" aria-label="Main navigation" data-i18n-aria="navLabel">
             <a class="logo" href="#hero">Sarai Rosas</a>
@@ -588,14 +590,14 @@
             <p>&copy; 2026 Sarai Rosas. <span data-i18n="rights">All rights reserved.</span></p>
         </div>
     </footer>
+    </div>
 
     <!-- Analog layer: grain, scanlines and flashlight -->
     <div class="screen-fx" aria-hidden="true"></div>
     <div class="tv" aria-hidden="true">
-        <span class="tv-bar tv-bar-top"></span>
-        <span class="tv-bar tv-bar-bottom"></span>
-        <span class="tv-line"></span>
         <span class="tv-static"></span>
+        <span class="tv-line"></span>
+        <span class="tv-dot"></span>
     </div>
 
     <script src="js/i18n.js"></script>

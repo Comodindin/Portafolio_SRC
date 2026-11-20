@@ -846,53 +846,26 @@ html[data-reality="red"] .screen-fx::before {
 }
 
 /* The cut between realities: an old CRT TV switching off and on.
-   .off  - static creeps in, the picture collapses into a bright line,
-           and the line shrinks to a dot.
-   .on   - the dot stretches back into a line, the picture opens up and
-           the static fades.
-   script.js swaps the reality between the two, while the screen is black. */
+   script.js animates .screen (the whole page) with the Web Animations API:
+   it squashes into a bright line, shrinks to a dot, the reality swaps in
+   the dark, and the dot stretches back into the new picture. This overlay
+   only adds the static and the afterglow of the dot. */
+.screen {
+    background: var(--paper);
+}
+
+/* While the TV is off, what's behind the picture is the black tube */
+html.crt,
+html.crt body {
+    background: #000;
+}
+
 .tv {
     position: fixed;
     inset: 0;
     z-index: 1700;
     overflow: hidden;
     pointer-events: none;
-    visibility: hidden;
-}
-
-.tv.off,
-.tv.on {
-    visibility: visible;
-}
-
-.tv-bar {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 50.5%;
-    background: #000;
-}
-
-.tv-bar-top {
-    top: 0;
-    transform: translateY(-101%);
-}
-
-.tv-bar-bottom {
-    bottom: 0;
-    transform: translateY(101%);
-}
-
-.tv-line {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: 3px;
-    margin-top: -1.5px;
-    background: #fff;
-    box-shadow: 0 0 14px 3px rgba(255, 255, 255, 0.85), 0 0 48px 10px rgba(170, 195, 255, 0.5);
-    opacity: 0;
 }
 
 .tv-static {
@@ -904,48 +877,29 @@ html[data-reality="red"] .screen-fx::before {
     opacity: 0;
 }
 
-/* Switching off */
-.tv.off .tv-bar-top { animation: tv-close-top 0.3s cubic-bezier(0.55, 0, 0.9, 0.45) 0.1s both; }
-.tv.off .tv-bar-bottom { animation: tv-close-bottom 0.3s cubic-bezier(0.55, 0, 0.9, 0.45) 0.1s both; }
-.tv.off .tv-line { animation: tv-line-off 0.62s linear both; }
-.tv.off .tv-static { animation: tv-static-off 0.42s steps(6) both; }
-
-@keyframes tv-close-top { from { transform: translateY(-101%); } to { transform: translateY(0); } }
-@keyframes tv-close-bottom { from { transform: translateY(101%); } to { transform: translateY(0); } }
-
-@keyframes tv-line-off {
-    0%, 60% { opacity: 0; transform: scaleX(1); }
-    66% { opacity: 1; transform: scaleX(1); }
-    90% { opacity: 1; transform: scaleX(0.012) scaleY(1.6); }
-    100% { opacity: 0; transform: scaleX(0.012); }
+.tv-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 4px;
+    margin-top: -2px;
+    background: #fff;
+    box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.9), 0 0 50px 12px rgba(180, 205, 255, 0.5);
+    opacity: 0;
 }
 
-@keyframes tv-static-off {
-    0% { opacity: 0; transform: translate(0, 0); }
-    30% { opacity: 0.35; transform: translate(-3%, 2%); }
-    60% { opacity: 0.5; transform: translate(2%, -4%); }
-    100% { opacity: 0; transform: translate(-1%, 3%); }
-}
-
-/* Switching on */
-.tv.on .tv-bar-top { animation: tv-open-top 0.45s cubic-bezier(0.1, 0.7, 0.3, 1) 0.18s both; }
-.tv.on .tv-bar-bottom { animation: tv-open-bottom 0.45s cubic-bezier(0.1, 0.7, 0.3, 1) 0.18s both; }
-.tv.on .tv-line { animation: tv-line-on 0.32s ease-out both; }
-.tv.on .tv-static { animation: tv-static-on 0.7s steps(7) 0.15s both; }
-
-@keyframes tv-open-top { from { transform: translateY(0); } to { transform: translateY(-101%); } }
-@keyframes tv-open-bottom { from { transform: translateY(0); } to { transform: translateY(101%); } }
-
-@keyframes tv-line-on {
-    0% { opacity: 1; transform: scaleX(0.012); }
-    55% { opacity: 1; transform: scaleX(1); }
-    100% { opacity: 0; transform: scaleX(1) scaleY(8); }
-}
-
-@keyframes tv-static-on {
-    0% { opacity: 0.55; transform: translate(0, 0); }
-    40% { opacity: 0.3; transform: translate(3%, -2%); }
-    100% { opacity: 0; transform: translate(-2%, 4%); }
+.tv-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    margin: -3px 0 0 -3px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 10px 4px #fff, 0 0 40px 14px rgba(180, 205, 255, 0.55);
+    opacity: 0;
 }
 
 @keyframes blink {
