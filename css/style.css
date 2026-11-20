@@ -495,6 +495,15 @@ a.project-card:hover h3 {
     min-width: 0;
 }
 
+/* Only tall pieces: cap the width so they don't grow taller than a screen */
+.campaign-strip-narrow {
+    max-width: 46rem;
+}
+
+.campaign-strip + .campaign-strip {
+    margin-top: 2.5rem;
+}
+
 /* Every image, video and carousel track shares the same frame */
 .media-card > img,
 .media-card > video,
@@ -985,6 +994,15 @@ html[data-reality="red"] h1::after {
     .campaign-strip > .media-card {
         flex: 0 0 calc(20rem * var(--r));
         scroll-snap-align: start;
+    }
+
+    .campaign-strip-narrow {
+        max-width: none;
+    }
+
+    /* The panorama scrolls at a lower height so it isn't four screens wide */
+    .campaign-strip-wide > .media-card {
+        flex-basis: calc(13rem * var(--r));
     }
 }
 
