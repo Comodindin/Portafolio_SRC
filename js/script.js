@@ -250,6 +250,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Profiles: one portfolio, a different link for each kind of application.
+    // ?perfil=ux | games | animation | design reorders what a recruiter sees first.
+    // The choice lasts for the visit, so it survives a trip to a case study and back.
+    const PROFILES = {
+        ux: { lead: 'heroLeadUx', cards: ['geografias', 'vitalia', 'laf', 'echoes', 'identidad', 'resource'] },
+        games: { lead: 'heroLeadGames', cards: ['echoes', 'resource', 'geografias', 'vitalia', 'identidad', 'laf'] },
+        animation: { lead: 'heroLeadAnim', cards: ['identidad', 'echoes', 'resource', 'vitalia', 'geografias', 'laf'], sections: ['work', 'freelance', 'experience'] },
+        design: { lead: 'heroLeadDesign', sections: ['experience', 'freelance', 'work'] }
+    };
+    const ALIASES = { juegos: 'games', animacion: 'animation', diseno: 'design', 'diseño': 'design' };
+
+    const pickProfile = () => {
+        const params = new URLSearchParams(window.location.search);
+        let name = (params.get('perfil') || params.get('for') || '').toLowerCase();
+        name = ALIASES[name] || name;
+        try {
+            if (name === 'todo' || name === 'all') sessionStorage.removeItem('perfil');
+            else if (PROFILES[name]) sessionStorage.setItem('perfil', name);
+            else name = sessionStorage.getItem('perfil') || '';
+        } catch { /* storage blocked: only the URL counts */ }
+        return PROFILES[name];
+    };
+
+    const profile = pickProfile();
+    if (profile) {
+        const lead = document.querySelector('.hero-lead');
+        if (lead && profile.lead) lead.dataset.i18n = profile.lead;
+
+        const grid = document.querySelector('.work-grid');
+        (profile.cards || []).forEach(id => {
+            const card = grid && grid.querySelector(`[data-id="${id}"]`);
+            if (card) grid.appendChild(card);
+        });
+
+        // Sections move as a block, right after the hero, and the menu follows
+        let after = document.getElementById('hero');
+        let navAfter = null;
+        (profile.sections || []).forEach(id => {
+            const section = document.getElementById(id);
+            if (section && after) {
+                after.after(section);
+                after = section;
+            }
+            const item = navMenu && navMenu.querySelector(`a[href="#${id}"]`);
+            if (item) {
+                const li = item.closest('li');
+                if (navAfter) navAfter.after(li); else navMenu.prepend(li);
+                navAfter = li;
+            }
+        });
+        // "View my work" goes to whatever now comes first
+        const first = profile.sections && profile.sections[0];
+        const heroWork = document.querySelector('#hero a[href="#work"]');
+        if (first && heroWork) heroWork.setAttribute('href', `#${first}`);
+
+        if (window.i18n) window.i18n.refresh();
+    }
+
     // Carousels: the track scrolls natively; buttons and the counter just drive it
     document.querySelectorAll('[data-carousel]').forEach(carousel => {
         const track = carousel.querySelector('.carousel-track');
