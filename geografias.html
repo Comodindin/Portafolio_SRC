@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-reality="blue">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geografías del Silencio case study | Sarai Rosas</title>
+    <meta name="author" content="Sarai Rosas">
+    <meta name="description" content="Geografías del Silencio: an interactive map of femicides in Puebla, winner of Digital Design at DISEÑA MX 2026. Case study by Sarai Rosas.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Geografías del Silencio case study | Sarai Rosas">
+    <meta property="og:description" content="An interactive map of femicides in Puebla. Winner of Digital Design at DISEÑA MX 2026.">
+    <meta property="og:url" content="https://comodindin.github.io/Portafolio_SRC/geografias.html">
+    <meta property="og:image" content="https://comodindin.github.io/Portafolio_SRC/assets/images/share-geografias.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Geografías del Silencio case study by Sarai Rosas: a dark interactive map of Puebla">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="canonical" href="https://comodindin.github.io/Portafolio_SRC/geografias.html">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+    <script>
+        // Play the TV intro once per session, unless the visitor prefers less motion
+        try {
+            if (!sessionStorage.getItem('intro') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.documentElement.classList.add('intro');
+            }
+        } catch (e) { /* storage blocked: skip the intro */ }
+    </script>
+    <link rel="stylesheet" href="css/style.css?v=20261127">
+</head>
+<body data-title="geoPageTitle">
+    <a class="skip-link" href="#case" data-i18n="vtSkip">Skip to the case study</a>
+
+    <div class="screen">
+    <header class="site-header">
+        <nav class="container" aria-label="Main navigation" data-i18n-aria="navLabel">
+            <a class="logo" href="index.html">Sarai Rosas</a>
+            <div class="nav-right">
+                <ul id="nav-menu">
+                    <li><a href="index.html#work" data-i18n="navWork">Work</a></li>
+                    <li><a href="index.html#freelance" data-i18n="navFreelance">Freelance</a></li>
+                    <li><a href="index.html#experience" data-i18n="navExperience">Experience</a></li>
+                    <li class="only-red"><a href="index.html#deleted" data-i18n="navDeleted">Discarded</a></li>
+                    <li><a href="index.html#about" data-i18n="navAbout">About</a></li>
+                    <li><a href="index.html#contact" data-i18n="navContact">Contact</a></li>
+                </ul>
+                <button type="button" class="reality-toggle" aria-pressed="false">
+                    <span class="reality-dot" aria-hidden="true"></span>
+                    <span class="reality-label" data-i18n="realityLabel">Deleted scene</span>
+                </button>
+                <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria="langLabel">
+                    <button type="button" data-lang="es" aria-pressed="false" lang="es">ES</button>
+                    <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+                </div>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="case">
+        <section class="case-hero">
+            <div class="container">
+                <a class="case-back" href="index.html#work" data-i18n="vtBack">← All work</a>
+                <p class="kicker" data-i18n="geoKicker">Case study, interactive cartography</p>
+                <h1 class="case-title-long" data-text="Geografías del Silencio">Geografías del Silencio</h1>
+                <p class="case-lead" data-i18n="geoLead">An interactive map so that femicides in Puebla stop getting lost among cold numbers: every point is a case, documented with memory and without revictimisation.</p>
+                <p class="case-award" data-i18n="geoAward">Winner of the Digital Design category, DISEÑA MX 2026</p>
+
+                <dl class="case-facts">
+                    <div><dt data-i18n="ecRoleLabel">My role</dt><dd data-i18n="geoRole">UX/UI design, narrative concept and visual direction, cleaning and structuring the forensic databases, and frontend development with ArcGIS and Babylon.js.</dd></div>
+                    <div><dt data-i18n="vtContextLabel">Context</dt><dd data-i18n="geoContext">Social service at the Forensic Architecture Laboratory (LAF), IBERO Puebla</dd></div>
+                    <div><dt data-i18n="geoDataLabel">Data</dt><dd data-i18n="geoData">Observatory of Social and Gender Violence (OVSG), IBERO Puebla</dd></div>
+                    <div><dt data-i18n="vtToolsLabel">Built with</dt><dd>ArcGIS, Babylon.js, HTML, CSS, JavaScript</dd></div>
+                </dl>
+            </div>
+            <div class="container">
+                <img class="case-cover" src="assets/images/femicide-project.jpg" width="1600" height="818" alt="Geografías del Silencio: a map of central Mexico with femicide cases marked in magenta around Puebla, and a timeline for 2025 and 2026">
+                <a class="text-link" href="https://comodindin.github.io/Geografiaas-del-Silencio-Fem/" target="_blank" rel="noopener noreferrer" data-i18n="geoVisit">Visit the live site ↗</a>
+            </div>
+        </section>
+
+        <section class="case-block">
+            <div class="container case-grid">
+                <h2 data-i18n="vtProblemTitle">The problem</h2>
+                <div class="case-text">
+                    <p data-i18n="geoProblem1">Official reports turn femicides into cold figures, and the patterns behind them stay hidden. We wanted to break that silence for the city and state of Puebla.</p>
+                    <div class="case-stats">
+                        <p><strong>240+</strong> <span data-i18n="geoStat1">probable femicides documented between 2021 and 2025, in 28 municipalities</span></p>
+                        <p><strong data-i18n="geoStat2Num">1 / 10</strong> <span data-i18n="geoStat2">one case every 10 days in 2025</span></p>
+                    </div>
+                    <p data-i18n="geoProblem2">Two patterns demanded an urgent response: aggressors from the victim's intimate circle went from 30% to 60% of cases, and the bodies were increasingly found inside homes rather than in public space.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-block case-tint">
+            <div class="container case-grid">
+                <h2 data-i18n="geoDataTitle">The data</h2>
+                <div class="case-text">
+                    <p data-i18n="geoDataText">The records come from the Observatory of Social and Gender Violence (OVSG) at IBERO Puebla and were worked on inside the Forensic Architecture Laboratory.</p>
+                    <blockquote class="case-quote" data-i18n="geoQuote">80% of the work was cleaning and curating the databases.</blockquote>
+                    <p data-i18n="geoDataText2">We followed a principle of radical empathy: the revictimising or morbid language of the official records was removed, so every point on the map reads as a testimony of memory and justice, not as a crime-scene detail.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-block">
+            <div class="container case-grid">
+                <h2 data-i18n="vtDecisionsTitle">Design decisions</h2>
+                <div class="case-text">
+                    <ul class="case-decisions">
+                        <li>
+                            <h3 data-i18n="geoD1">A territorial scar</h3>
+                            <p data-i18n="geoD1Text">A geospatial approach turns abstract spreadsheet rows into something you can see on the land. Timeline filters (2024, 2025, 2026) and a file for each case let people go from the pattern to the person.</p>
+                        </li>
+                        <li>
+                            <h3 data-i18n="geoD2">A dark, forensic look</h3>
+                            <p data-i18n="geoD2Text">Blacks, violets and coral red accents, with high contrast. It isn't decoration: it prepares the visitor emotionally before they face the data.</p>
+                        </li>
+                        <li>
+                            <h3 data-i18n="geoD3">Words before the map</h3>
+                            <p data-i18n="geoD3Text">The site opens with short lines of text on a black screen before the interface appears, so people arrive at the data slowly and with care.</p>
+                        </li>
+                        <li>
+                            <h3 data-i18n="geoD4">No revictimisation</h3>
+                            <p data-i18n="geoD4Text">No morbid images or wording. Each case is presented with the same respect, as memory rather than spectacle.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-block case-tint">
+            <div class="container case-grid">
+                <h2 data-i18n="geoExperienceTitle">The experience</h2>
+                <div class="case-text">
+                    <div class="asset-grid">
+                        <figure>
+                            <img src="assets/images/geografias/intro-1.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Black screen with violet typewriter text: Cada día, una flor se apaga y un pétalo se seca. Cada día, un colibrí deja de volar.">
+                            <figcaption data-i18n="geoShot1">The opening lines</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="assets/images/geografias/intro-2.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Black screen with violet text: Los datos no son solo información, son memorias.">
+                            <figcaption data-i18n="geoShot2">“The data isn't just information, it's memories”</figcaption>
+                        </figure>
+                        <figure class="asset-wide">
+                            <img src="assets/images/geografias/interfaz.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="The interface while loading: a forensic dashboard with the words Identificando ausencias, a status panel for Puebla and a button to open a case file">
+                            <figcaption data-i18n="geoShot3">“Identifying absences”: the interface before a case file opens</figcaption>
+                        </figure>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="https://comodindin.github.io/Geografiaas-del-Silencio-Fem/" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="geoVisit">Visit the live site ↗</a>
+                        <a href="index.html#work" class="btn btn-secondary" data-i18n="vtMore">Back to all work</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Sarai Rosas. <span data-i18n="rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+    </div>
+
+    <div class="screen-fx" aria-hidden="true"></div>
+    <div class="tv" aria-hidden="true">
+        <span class="tv-static"></span>
+        <span class="tv-line"></span>
+        <span class="tv-dot"></span>
+    </div>
+
+    <script src="js/i18n.js?v=20261127"></script>
+    <script src="js/script.js?v=20261127"></script>
+</body>
+</html>

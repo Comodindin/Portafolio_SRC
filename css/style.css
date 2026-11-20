@@ -1168,6 +1168,16 @@ html[data-reality="red"] .tarot li:hover img {
     color: var(--ink-soft);
 }
 
+.case-award {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: var(--cobalt);
+    color: #fff;
+    font-weight: 700;
+}
+
 .case-facts {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
@@ -1186,6 +1196,10 @@ html[data-reality="red"] .tarot li:hover img {
 
 .case-facts dd {
     line-height: 1.45;
+}
+
+.case-cover + .text-link {
+    margin-top: 1rem;
 }
 
 .case-cover {
@@ -1234,6 +1248,10 @@ html[data-reality="red"] .tarot li:hover img {
     font-stretch: 112%;
     line-height: 1.25;
     color: var(--ink);
+}
+
+.case-quote + p {
+    margin-top: 1.5rem;
 }
 
 .case-stats {
