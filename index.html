@@ -6,12 +6,12 @@
 
     <title>Sarai Rosas | Interaction Designer</title>
     <meta name="author" content="Sarai Rosas">
-    <meta name="description" content="Interaction designer working across UI/UX, data visualization and real-time 3D. I design interactive systems and build them in Swift, Unreal Engine and the browser. Based in Puebla, Mexico.">
+    <meta name="description" content="Award-winning interaction designer (DISEÑA MX 2026) working across UI/UX, data visualization and real-time 3D. I design interactive systems and build them in Swift, Unreal Engine and the browser. Based in Puebla, Mexico.">
 
     <!-- Link previews when someone shares your portfolio on LinkedIn, Slack or WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Sarai Rosas | Interaction Designer">
-    <meta property="og:description" content="Interaction designer working across UI/UX, data visualization and real-time 3D. I design interactive systems and build them.">
+    <meta property="og:description" content="Interaction designer, DISEÑA MX 2026 Digital Design winner, former design intern at Volkswagen Financial Services. UI/UX, data visualization and real-time 3D.">
     <meta property="og:url" content="https://comodindin.github.io/Portafolio_SRC/">
     <meta property="og:image" content="https://comodindin.github.io/Portafolio_SRC/assets/images/share-preview.jpg">
     <meta property="og:image:width" content="1200">
@@ -32,7 +32,7 @@
             }
         } catch (e) { /* storage blocked: skip the intro */ }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=20261129">
+    <link rel="stylesheet" href="css/style.css?v=20261130">
 </head>
 <body>
     <a class="skip-link" href="#work" data-i18n="skip">Skip to work</a>
@@ -45,8 +45,8 @@
             <div class="nav-right">
                 <ul id="nav-menu">
                     <li><a href="#work" data-i18n="navWork">Work</a></li>
-                    <li><a href="#freelance" data-i18n="navFreelance">Freelance</a></li>
                     <li><a href="#experience" data-i18n="navExperience">Experience</a></li>
+                    <li><a href="#freelance" data-i18n="navFreelance">Freelance</a></li>
                     <li class="only-red"><a href="#deleted" data-i18n="navDeleted">Discarded</a></li>
                     <li><a href="#about" data-i18n="navAbout">About</a></li>
                     <li><a href="#contact" data-i18n="navContact">Contact</a></li>
@@ -83,6 +83,30 @@
                     <figcaption data-i18n="heroTiles">Talavera tiles, from Puebla. Tap one to turn it.</figcaption>
                 </figure>
             </div>
+            <!-- Proof first: the three facts a recruiter should see before scrolling -->
+            <div class="container">
+                <ul class="hero-proof" aria-label="Highlights" data-i18n-aria="proofLabel">
+                    <li class="proof-award">
+                        <a href="geografias.html">
+                            <svg class="medal" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 1.5h4.2l1.3 6-3.4 1.2zM17.5 1.5h-4.2l-1.3 6 3.4 1.2z" fill="currentColor" opacity=".55"/><circle cx="12" cy="15.5" r="6.5" fill="currentColor"/><path d="M12 11.7l1.15 2.35 2.6.38-1.88 1.83.44 2.58L12 17.62l-2.31 1.22.44-2.58-1.88-1.83 2.6-.38z" fill="var(--paper)"/></svg>
+                            <strong data-i18n="proofAwardTitle">DISEÑA MX 2026 winner, Digital Design</strong>
+                            <span>Geografías del Silencio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#experience">
+                            <strong>Volkswagen Financial Services</strong>
+                            <span data-i18n="proofVwText">Design intern, 2024–2025 · 11 brands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="echoes.html">
+                            <strong data-i18n="proofMuseumTitle">Exhibited at Museo Amparo</strong>
+                            <span data-i18n="ecTitle">Echoes of the Past, Voices of the Present</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </section>
 
         <section id="work">
@@ -96,21 +120,28 @@
                 </div>
                 <div class="work-grid">
 
-                    <article class="project-card" data-id="geografias" data-cat="ux">
+                    <!-- The award winner gets a full row, whatever position a profile puts it in -->
+                    <article class="project-card is-featured" data-id="geografias" data-cat="ux">
                         <a class="image-container" href="geografias.html" tabindex="-1" aria-hidden="true">
-                            <img src="assets/images/femicide-project.jpg" loading="lazy" decoding="async" alt="Geografías del Silencio web interface showing the interactive map of femicide data in Mexico">
+                            <img src="assets/images/femicide-project.jpg" decoding="async" alt="Geografías del Silencio web interface showing the interactive map of femicide data in Mexico">
                             <span class="status-badge status-award" data-i18n="p3Badge">Award winner</span>
                         </a>
-                        <ul class="tags">
-                            <li>UI/UX</li><li>Frontend</li><li data-i18n="tagDataViz">Data viz</li>
-                        </ul>
-                        <h3>Geografías del Silencio</h3>
-                        <p class="card-translation" data-i18n="p3Translation">“Geographies of Silence”</p>
-                        <p data-i18n="p3Desc">A custom web interface built for the Forensic Architecture Laboratory to document and visualize data on femicide in Mexico, turning forensic research into a cartographic narrative anyone can read.</p>
-                        <p class="card-shown" data-i18n="p3Award">Winner of the Digital Design category at DISEÑA MX 2026, where it will be presented.</p>
-                        <div class="card-links">
-                            <a class="card-primary" href="geografias.html" data-i18n="caseStudy">Case study →</a>
-                            <a href="https://comodindin.github.io/Geografiaas-del-Silencio-Fem/" target="_blank" rel="noopener noreferrer" data-i18n="cardLive">Live site ↗</a>
+                        <div class="card-body">
+                            <div class="award-callout">
+                                <svg class="medal" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 1.5h4.2l1.3 6-3.4 1.2zM17.5 1.5h-4.2l-1.3 6 3.4 1.2z" fill="currentColor" opacity=".55"/><circle cx="12" cy="15.5" r="6.5" fill="currentColor"/><path d="M12 11.7l1.15 2.35 2.6.38-1.88 1.83.44 2.58L12 17.62l-2.31 1.22.44-2.58-1.88-1.83 2.6-.38z" fill="var(--paper)"/></svg>
+                                <p><strong data-i18n="p3AwardTitle">Winner, Digital Design category</strong> <span data-i18n="p3AwardEvent">DISEÑA MX 2026, where it will be presented</span></p>
+                            </div>
+                            <ul class="tags">
+                                <li>UI/UX</li><li>Frontend</li><li data-i18n="tagDataViz">Data viz</li>
+                            </ul>
+                            <h3>Geografías del Silencio</h3>
+                            <p class="card-translation" data-i18n="p3Translation">“Geographies of Silence”</p>
+                            <p data-i18n="p3Desc">A custom web interface built for the Forensic Architecture Laboratory to document and visualize data on femicide in Mexico, turning forensic research into a cartographic narrative anyone can read.</p>
+                            <p class="card-role" data-i18n="p3Role">My role: UX/UI, narrative concept and visual direction, cleaning the forensic databases and frontend development.</p>
+                            <div class="card-links">
+                                <a class="card-primary" href="geografias.html" data-i18n="caseStudy">Case study →</a>
+                                <a href="https://comodindin.github.io/Geografiaas-del-Silencio-Fem/" target="_blank" rel="noopener noreferrer" data-i18n="cardLive">Live site ↗</a>
+                            </div>
                         </div>
                     </article>
 
@@ -197,175 +228,45 @@
             </div>
         </section>
 
-        <section id="freelance">
-            <div class="container">
-                <h2>Freelance</h2>
-                <div class="section-intro">
-                    <h3>Marina Reyes, Medicina Integral</h3>
-                    <p data-i18n="flIntro">Instagram content in Spanish for a local audience: an integrative medicine practice in Oaxaca. Art direction, editorial design and copywriting for 8 carousels (52 pieces) that explain each therapy in plain language, plus seasonal campaigns and a reel.</p>
-                    <a href="https://www.instagram.com/marinareyesintegral" target="_blank" rel="noopener noreferrer" class="text-link" data-i18n="flInstagram">See @marinareyesintegral on Instagram ↗</a>
-                </div>
-                <p class="hint" data-i18n="flHint">Swipe or use the arrows to flip through each carousel.</p>
-                <div class="media-grid">
-
-                    <figure class="media-card carousel" data-carousel>
-                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="¿Ya nos conoces? (5 slides)">
-                            <img src="assets/images/freelance/conocenos/01.jpg" loading="lazy" decoding="async" alt="¿Ya nos conoces?, slide 1 of 5">
-                            <img src="assets/images/freelance/conocenos/02.jpg" loading="lazy" decoding="async" alt="¿Ya nos conoces?, slide 2 of 5">
-                            <img src="assets/images/freelance/conocenos/03.jpg" loading="lazy" decoding="async" alt="¿Ya nos conoces?, slide 3 of 5">
-                            <img src="assets/images/freelance/conocenos/04.jpg" loading="lazy" decoding="async" alt="¿Ya nos conoces?, slide 4 of 5">
-                            <img src="assets/images/freelance/conocenos/05.jpg" loading="lazy" decoding="async" alt="¿Ya nos conoces?, slide 5 of 5">
-                        </div>
-                        <div class="carousel-controls">
-                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
-                            <span class="carousel-count" aria-live="polite">1 / 5</span>
-                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
-                        </div>
-                        <figcaption>¿Ya nos conoces?</figcaption>
-                    </figure>
-
-                    <figure class="media-card carousel" data-carousel>
-                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Lo que más nos preguntan (7 slides)">
-                            <img src="assets/images/freelance/preguntas/01.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 1 of 7">
-                            <img src="assets/images/freelance/preguntas/02.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 2 of 7">
-                            <img src="assets/images/freelance/preguntas/03.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 3 of 7">
-                            <img src="assets/images/freelance/preguntas/04.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 4 of 7">
-                            <img src="assets/images/freelance/preguntas/05.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 5 of 7">
-                            <img src="assets/images/freelance/preguntas/06.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 6 of 7">
-                            <img src="assets/images/freelance/preguntas/07.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 7 of 7">
-                        </div>
-                        <div class="carousel-controls">
-                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
-                            <span class="carousel-count" aria-live="polite">1 / 7</span>
-                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
-                        </div>
-                        <figcaption>Lo que más nos preguntan</figcaption>
-                    </figure>
-
-                    <figure class="media-card carousel" data-carousel>
-                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="No todas las sesiones de acupuntura son iguales (8 slides)">
-                            <img src="assets/images/freelance/acupuntura/01.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 1 of 8">
-                            <img src="assets/images/freelance/acupuntura/02.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 2 of 8">
-                            <img src="assets/images/freelance/acupuntura/03.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 3 of 8">
-                            <img src="assets/images/freelance/acupuntura/04.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 4 of 8">
-                            <img src="assets/images/freelance/acupuntura/05.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 5 of 8">
-                            <img src="assets/images/freelance/acupuntura/06.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 6 of 8">
-                            <img src="assets/images/freelance/acupuntura/07.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 7 of 8">
-                            <img src="assets/images/freelance/acupuntura/08.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 8 of 8">
-                        </div>
-                        <div class="carousel-controls">
-                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
-                            <span class="carousel-count" aria-live="polite">1 / 8</span>
-                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
-                        </div>
-                        <figcaption>No todas las sesiones de acupuntura son iguales</figcaption>
-                    </figure>
-
-                    <figure class="media-card carousel" data-carousel>
-                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="¿Has escuchado de las Barras de Access? (7 slides)">
-                            <img src="assets/images/freelance/barras-access/01.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 1 of 7">
-                            <img src="assets/images/freelance/barras-access/02.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 2 of 7">
-                            <img src="assets/images/freelance/barras-access/03.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 3 of 7">
-                            <img src="assets/images/freelance/barras-access/04.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 4 of 7">
-                            <img src="assets/images/freelance/barras-access/05.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 5 of 7">
-                            <img src="assets/images/freelance/barras-access/06.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 6 of 7">
-                            <img src="assets/images/freelance/barras-access/07.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 7 of 7">
-                        </div>
-                        <div class="carousel-controls">
-                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
-                            <span class="carousel-count" aria-live="polite">1 / 7</span>
-                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
-                        </div>
-                        <figcaption>¿Has escuchado de las Barras de Access?</figcaption>
-                    </figure>
-
-                    <figure class="media-card carousel" data-carousel>
-                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="¿Conoces la detox iónica? (7 slides)">
-                            <img src="assets/images/freelance/detox-ionica/01.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 1 of 7">
-                            <img src="assets/images/freelance/detox-ionica/02.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 2 of 7">
-                            <img src="assets/images/freelance/detox-ionica/03.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 3 of 7">
-                            <img src="assets/images/freelance/detox-ionica/04.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 4 of 7">
-                            <img src="assets/images/freelance/detox-ionica/05.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 5 of 7">
-                            <img src="assets/images/freelance/detox-ionica/06.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 6 of 7">
-                            <img src="assets/images/freelance/detox-ionica/07.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 7 of 7">
-                        </div>
-                        <div class="carousel-controls">
-                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
-                            <span class="carousel-count" aria-live="polite">1 / 7</span>
-                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
-                        </div>
-                        <figcaption>¿Conoces la detox iónica?</figcaption>
-                    </figure>
-
-                    <figure class="media-card carousel" data-carousel>
-                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="¿Has escuchado de la auriculoterapia? (7 slides)">
-                            <img src="assets/images/freelance/auriculoterapia/01.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 1 of 7">
-                            <img src="assets/images/freelance/auriculoterapia/02.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 2 of 7">
-                            <img src="assets/images/freelance/auriculoterapia/03.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 3 of 7">
-                            <img src="assets/images/freelance/auriculoterapia/04.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 4 of 7">
-                            <img src="assets/images/freelance/auriculoterapia/05.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 5 of 7">
-                            <img src="assets/images/freelance/auriculoterapia/06.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 6 of 7">
-                            <img src="assets/images/freelance/auriculoterapia/07.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 7 of 7">
-                        </div>
-                        <div class="carousel-controls">
-                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
-                            <span class="carousel-count" aria-live="polite">1 / 7</span>
-                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
-                        </div>
-                        <figcaption>¿Has escuchado de la auriculoterapia?</figcaption>
-                    </figure>
-
-                    <figure class="media-card carousel" data-carousel>
-                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Regálate un momento de descanso (6 slides)">
-                            <img src="assets/images/freelance/buen-fin/01.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 1 of 6">
-                            <img src="assets/images/freelance/buen-fin/02.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 2 of 6">
-                            <img src="assets/images/freelance/buen-fin/03.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 3 of 6">
-                            <img src="assets/images/freelance/buen-fin/04.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 4 of 6">
-                            <img src="assets/images/freelance/buen-fin/05.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 5 of 6">
-                            <img src="assets/images/freelance/buen-fin/06.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 6 of 6">
-                        </div>
-                        <div class="carousel-controls">
-                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
-                            <span class="carousel-count" aria-live="polite">1 / 6</span>
-                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
-                        </div>
-                        <figcaption>Regálate un momento de descanso</figcaption>
-                    </figure>
-
-                    <figure class="media-card carousel" data-carousel>
-                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Hasta la Catrina termina cansada (5 slides)">
-                            <img src="assets/images/freelance/dia-muertos/01.jpg" loading="lazy" decoding="async" alt="Hasta la Catrina termina cansada, slide 1 of 5">
-                            <img src="assets/images/freelance/dia-muertos/02.jpg" loading="lazy" decoding="async" alt="Hasta la Catrina termina cansada, slide 2 of 5">
-                            <img src="assets/images/freelance/dia-muertos/03.jpg" loading="lazy" decoding="async" alt="Hasta la Catrina termina cansada, slide 3 of 5">
-                            <img src="assets/images/freelance/dia-muertos/04.jpg" loading="lazy" decoding="async" alt="Hasta la Catrina termina cansada, slide 4 of 5">
-                            <img src="assets/images/freelance/dia-muertos/05.jpg" loading="lazy" decoding="async" alt="Hasta la Catrina termina cansada, slide 5 of 5">
-                        </div>
-                        <div class="carousel-controls">
-                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
-                            <span class="carousel-count" aria-live="polite">1 / 5</span>
-                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
-                        </div>
-                        <figcaption>Hasta la Catrina termina cansada</figcaption>
-                    </figure>
-
-                    <figure class="media-card">
-                        <video class="ratio-9x16" controls playsinline preload="none" poster="assets/videos/marina-reel-poster.jpg">
-                            <source src="assets/videos/marina-reel.mp4" type="video/mp4">
-                        </video>
-                        <figcaption>Reel</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
-
         <section id="experience">
             <div class="container">
                 <h2 data-i18n="expTitle">Experience</h2>
-                <div class="section-intro">
-                    <h3>Volkswagen Financial Services</h3>
-                    <p data-i18n="expIntro">Internship, one year. I produced social media material for the 11 brands in the group, aimed at their dealership networks. Every piece had to hold each brand's global identity standards while still working as local, financing-focused content.</p>
-                    <p class="note" data-i18n="expNote">These pieces are a selection from that year. Most of the material stayed on company equipment for confidentiality reasons, so I'm showing what I'm able to share.</p>
+                <div class="exp-header">
+                    <div class="exp-main">
+                        <p class="exp-role"><span data-i18n="expRole">Design Intern</span> · 2024 – 2025</p>
+                        <h3>Volkswagen Financial Services México</h3>
+                        <p data-i18n="expIntro">One year designing for the 11 brands in the group, from social media for their dealership networks to print and corporate identity. Every piece had to hold each brand's global identity standards while still working as local, financing-focused content.</p>
+                        <ul class="exp-brands" aria-label="Brands I designed for" data-i18n-aria="expBrandsLabel">
+                            <li>Volkswagen</li><li>SEAT</li><li>CUPRA</li><li>Audi</li><li>Porsche</li><li>Ducati</li><li data-i18n="expBrandVwcv">VW Commercial Vehicles</li>
+                        </ul>
+                    </div>
+                    <div class="exp-stats">
+                        <p><strong>11</strong> <span data-i18n="expStat1">brands in the group</span></p>
+                        <p><strong>8+</strong> <span data-i18n="expStat2">formats, from stories to large format</span></p>
+                        <p><strong>IMPI</strong> <span data-i18n="expStat3">registered logo for the identity system I designed</span></p>
+                    </div>
                 </div>
+
+                <ul class="exp-highlights">
+                    <li>
+                        <h4 data-i18n="expH1">Corporate identity system</h4>
+                        <p data-i18n="expH1Text">A complete identity system, with a logo registered with IMPI, Mexico's trademark office.</p>
+                    </li>
+                    <li>
+                        <h4 data-i18n="expH2">Multi-brand campaigns</h4>
+                        <p data-i18n="expH2Text">Long Drive and Usados Certificados for Volkswagen, plus SEAT, CUPRA, Ducati, Audi and Porsche: carousels, stories, posts, reels, mailings, banners and large format.</p>
+                    </li>
+                    <li>
+                        <h4 data-i18n="expH3">Template systems</h4>
+                        <p data-i18n="expH3Text">Editable CUPRA layouts so new copy and photos could go in without breaking the brand.</p>
+                    </li>
+                    <li>
+                        <h4 data-i18n="expH4">Brand quality control</h4>
+                        <p data-i18n="expH4Text">Checked marketing materials against global brand standards before publication, and coordinated digital assets across multi-brand campaigns.</p>
+                    </li>
+                </ul>
+
+                <p class="note exp-note" data-i18n="expNote">These pieces are a selection from that year. Most of the material stayed on company equipment for confidentiality reasons, so I'm showing what I'm able to share.</p>
 
                 <article class="campaign">
                     <div class="campaign-header">
@@ -587,6 +488,167 @@
             </div>
         </section>
 
+        <section id="freelance">
+            <div class="container">
+                <h2>Freelance</h2>
+                <div class="section-intro">
+                    <h3>Marina Reyes, Medicina Integral</h3>
+                    <p data-i18n="flIntro">Instagram content in Spanish for a local audience: an integrative medicine practice in Oaxaca. Art direction, editorial design and copywriting for 8 carousels (52 pieces) that explain each therapy in plain language, plus seasonal campaigns and a reel.</p>
+                    <a href="https://www.instagram.com/marinareyesintegral" target="_blank" rel="noopener noreferrer" class="text-link" data-i18n="flInstagram">See @marinareyesintegral on Instagram ↗</a>
+                </div>
+                <p class="hint" data-i18n="flHint">Swipe or use the arrows to flip through each carousel.</p>
+                <div class="media-grid">
+
+                    <figure class="media-card carousel" data-carousel>
+                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="¿Ya nos conoces? (5 slides)">
+                            <img src="assets/images/freelance/conocenos/01.jpg" loading="lazy" decoding="async" alt="¿Ya nos conoces?, slide 1 of 5">
+                            <img src="assets/images/freelance/conocenos/02.jpg" loading="lazy" decoding="async" alt="¿Ya nos conoces?, slide 2 of 5">
+                            <img src="assets/images/freelance/conocenos/03.jpg" loading="lazy" decoding="async" alt="¿Ya nos conoces?, slide 3 of 5">
+                            <img src="assets/images/freelance/conocenos/04.jpg" loading="lazy" decoding="async" alt="¿Ya nos conoces?, slide 4 of 5">
+                            <img src="assets/images/freelance/conocenos/05.jpg" loading="lazy" decoding="async" alt="¿Ya nos conoces?, slide 5 of 5">
+                        </div>
+                        <div class="carousel-controls">
+                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
+                            <span class="carousel-count" aria-live="polite">1 / 5</span>
+                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
+                        </div>
+                        <figcaption>¿Ya nos conoces?</figcaption>
+                    </figure>
+
+                    <figure class="media-card carousel" data-carousel>
+                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Lo que más nos preguntan (7 slides)">
+                            <img src="assets/images/freelance/preguntas/01.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 1 of 7">
+                            <img src="assets/images/freelance/preguntas/02.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 2 of 7">
+                            <img src="assets/images/freelance/preguntas/03.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 3 of 7">
+                            <img src="assets/images/freelance/preguntas/04.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 4 of 7">
+                            <img src="assets/images/freelance/preguntas/05.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 5 of 7">
+                            <img src="assets/images/freelance/preguntas/06.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 6 of 7">
+                            <img src="assets/images/freelance/preguntas/07.jpg" loading="lazy" decoding="async" alt="Lo que más nos preguntan, slide 7 of 7">
+                        </div>
+                        <div class="carousel-controls">
+                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
+                            <span class="carousel-count" aria-live="polite">1 / 7</span>
+                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
+                        </div>
+                        <figcaption>Lo que más nos preguntan</figcaption>
+                    </figure>
+
+                    <figure class="media-card carousel" data-carousel>
+                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="No todas las sesiones de acupuntura son iguales (8 slides)">
+                            <img src="assets/images/freelance/acupuntura/01.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 1 of 8">
+                            <img src="assets/images/freelance/acupuntura/02.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 2 of 8">
+                            <img src="assets/images/freelance/acupuntura/03.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 3 of 8">
+                            <img src="assets/images/freelance/acupuntura/04.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 4 of 8">
+                            <img src="assets/images/freelance/acupuntura/05.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 5 of 8">
+                            <img src="assets/images/freelance/acupuntura/06.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 6 of 8">
+                            <img src="assets/images/freelance/acupuntura/07.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 7 of 8">
+                            <img src="assets/images/freelance/acupuntura/08.jpg" loading="lazy" decoding="async" alt="No todas las sesiones de acupuntura son iguales, slide 8 of 8">
+                        </div>
+                        <div class="carousel-controls">
+                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
+                            <span class="carousel-count" aria-live="polite">1 / 8</span>
+                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
+                        </div>
+                        <figcaption>No todas las sesiones de acupuntura son iguales</figcaption>
+                    </figure>
+
+                    <figure class="media-card carousel" data-carousel>
+                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="¿Has escuchado de las Barras de Access? (7 slides)">
+                            <img src="assets/images/freelance/barras-access/01.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 1 of 7">
+                            <img src="assets/images/freelance/barras-access/02.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 2 of 7">
+                            <img src="assets/images/freelance/barras-access/03.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 3 of 7">
+                            <img src="assets/images/freelance/barras-access/04.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 4 of 7">
+                            <img src="assets/images/freelance/barras-access/05.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 5 of 7">
+                            <img src="assets/images/freelance/barras-access/06.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 6 of 7">
+                            <img src="assets/images/freelance/barras-access/07.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de las Barras de Access?, slide 7 of 7">
+                        </div>
+                        <div class="carousel-controls">
+                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
+                            <span class="carousel-count" aria-live="polite">1 / 7</span>
+                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
+                        </div>
+                        <figcaption>¿Has escuchado de las Barras de Access?</figcaption>
+                    </figure>
+
+                    <figure class="media-card carousel" data-carousel>
+                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="¿Conoces la detox iónica? (7 slides)">
+                            <img src="assets/images/freelance/detox-ionica/01.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 1 of 7">
+                            <img src="assets/images/freelance/detox-ionica/02.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 2 of 7">
+                            <img src="assets/images/freelance/detox-ionica/03.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 3 of 7">
+                            <img src="assets/images/freelance/detox-ionica/04.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 4 of 7">
+                            <img src="assets/images/freelance/detox-ionica/05.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 5 of 7">
+                            <img src="assets/images/freelance/detox-ionica/06.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 6 of 7">
+                            <img src="assets/images/freelance/detox-ionica/07.jpg" loading="lazy" decoding="async" alt="¿Conoces la detox iónica?, slide 7 of 7">
+                        </div>
+                        <div class="carousel-controls">
+                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
+                            <span class="carousel-count" aria-live="polite">1 / 7</span>
+                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
+                        </div>
+                        <figcaption>¿Conoces la detox iónica?</figcaption>
+                    </figure>
+
+                    <figure class="media-card carousel" data-carousel>
+                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="¿Has escuchado de la auriculoterapia? (7 slides)">
+                            <img src="assets/images/freelance/auriculoterapia/01.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 1 of 7">
+                            <img src="assets/images/freelance/auriculoterapia/02.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 2 of 7">
+                            <img src="assets/images/freelance/auriculoterapia/03.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 3 of 7">
+                            <img src="assets/images/freelance/auriculoterapia/04.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 4 of 7">
+                            <img src="assets/images/freelance/auriculoterapia/05.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 5 of 7">
+                            <img src="assets/images/freelance/auriculoterapia/06.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 6 of 7">
+                            <img src="assets/images/freelance/auriculoterapia/07.jpg" loading="lazy" decoding="async" alt="¿Has escuchado de la auriculoterapia?, slide 7 of 7">
+                        </div>
+                        <div class="carousel-controls">
+                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
+                            <span class="carousel-count" aria-live="polite">1 / 7</span>
+                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
+                        </div>
+                        <figcaption>¿Has escuchado de la auriculoterapia?</figcaption>
+                    </figure>
+
+                    <figure class="media-card carousel" data-carousel>
+                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Regálate un momento de descanso (6 slides)">
+                            <img src="assets/images/freelance/buen-fin/01.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 1 of 6">
+                            <img src="assets/images/freelance/buen-fin/02.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 2 of 6">
+                            <img src="assets/images/freelance/buen-fin/03.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 3 of 6">
+                            <img src="assets/images/freelance/buen-fin/04.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 4 of 6">
+                            <img src="assets/images/freelance/buen-fin/05.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 5 of 6">
+                            <img src="assets/images/freelance/buen-fin/06.jpg" loading="lazy" decoding="async" alt="Regálate un momento de descanso, slide 6 of 6">
+                        </div>
+                        <div class="carousel-controls">
+                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
+                            <span class="carousel-count" aria-live="polite">1 / 6</span>
+                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
+                        </div>
+                        <figcaption>Regálate un momento de descanso</figcaption>
+                    </figure>
+
+                    <figure class="media-card carousel" data-carousel>
+                        <div class="carousel-track ratio-4x5" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Hasta la Catrina termina cansada (5 slides)">
+                            <img src="assets/images/freelance/dia-muertos/01.jpg" loading="lazy" decoding="async" alt="Hasta la Catrina termina cansada, slide 1 of 5">
+                            <img src="assets/images/freelance/dia-muertos/02.jpg" loading="lazy" decoding="async" alt="Hasta la Catrina termina cansada, slide 2 of 5">
+                            <img src="assets/images/freelance/dia-muertos/03.jpg" loading="lazy" decoding="async" alt="Hasta la Catrina termina cansada, slide 3 of 5">
+                            <img src="assets/images/freelance/dia-muertos/04.jpg" loading="lazy" decoding="async" alt="Hasta la Catrina termina cansada, slide 4 of 5">
+                            <img src="assets/images/freelance/dia-muertos/05.jpg" loading="lazy" decoding="async" alt="Hasta la Catrina termina cansada, slide 5 of 5">
+                        </div>
+                        <div class="carousel-controls">
+                            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous slide">&larr;</button>
+                            <span class="carousel-count" aria-live="polite">1 / 5</span>
+                            <button type="button" class="carousel-btn" data-dir="1" aria-label="Next slide">&rarr;</button>
+                        </div>
+                        <figcaption>Hasta la Catrina termina cansada</figcaption>
+                    </figure>
+
+                    <figure class="media-card">
+                        <video class="ratio-9x16" controls playsinline preload="none" poster="assets/videos/marina-reel-poster.jpg">
+                            <source src="assets/videos/marina-reel.mp4" type="video/mp4">
+                        </video>
+                        <figcaption>Reel</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
         <section id="about">
             <div class="container about-grid">
                 <div class="about-text">
@@ -682,7 +744,7 @@
         <span class="tv-dot"></span>
     </div>
 
-    <script src="js/i18n.js?v=20261129"></script>
-    <script src="js/script.js?v=20261129"></script>
+    <script src="js/i18n.js?v=20261130"></script>
+    <script src="js/script.js?v=20261130"></script>
 </body>
 </html>
