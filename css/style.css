@@ -1372,6 +1372,47 @@ html[data-reality="red"] .tarot li:hover img {
     margin-top: 2.5rem;
 }
 
+/* Spec card laid out as one row under a campaign header */
+.spec-inline {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.spec-inline div + div {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--line);
+}
+
+/* Small label over each strip when a campaign has more than one */
+.strip-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 0.9rem;
+}
+
+.campaign-strip + .strip-label {
+    margin-top: 2.5rem;
+}
+
+@media (max-width: 900px) {
+    .spec-inline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .spec-inline div:nth-child(3) {
+        padding-left: 0;
+        border-left: 0;
+    }
+}
+
 /* Palette swatches in the identity spec card */
 .ldc-swatches {
     display: flex;
